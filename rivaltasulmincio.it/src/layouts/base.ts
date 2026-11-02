@@ -33,9 +33,8 @@ export function renderDocument(path: string, page: PageResult): RenderedDocument
     <a class="skip-link" href="#contenuto">Vai al contenuto</a>
     ${notice ? noticeBar(notice) : ''}
     ${header(path)}
-    <main id="contenuto" class="container">${page.main}</main>
-    ${footer()}
-    <div class="stagione" data-stagione="autunno" aria-hidden="true"></div>
+    <main id="contenuto" class="container" tabindex="-1">${page.main}</main>
+    ${footer(path)}
   `;
 
   return { status: page.status ?? 200, head, html: body.value };

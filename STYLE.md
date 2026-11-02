@@ -93,49 +93,34 @@ Non trasformare il sito in terminale finto.
 
 ## PALETTE
 
-Base cromatica:
-
-**marrone + rosso bruciato + crema + carbone**
+Dal 2.11.2026 il sito veste la tavolozza di albertopecchini.it: **carta, inchiostro, minio**.
 
 Colore dominante:
 
 ```text
-deep brown
+carta #f3f1ec (fondo), carta 2 #eae7e0 e carta 3 #dedad1 (testate, riquadri)
+```
+
+Testo e superfici scure:
+
+```text
+inchiostro #10110f, inchiostro 2 #1b1c19, inchiostro 3 #2b2c28
+grafite #5a5b55 per il testo secondario e le etichette
 ```
 
 Colore identitario:
 
 ```text
-burnt red
+minio #e5481f (riempimenti, selezione, avanzamento)
+minio profondo #b5360f (come testo e link sulla carta: AA)
+minio acceso #ff6a3d (sull'inchiostro)
 ```
 
-Colore di supporto:
+Sopra il minio si scrive in inchiostro: il bianco non arriva ad AA.
 
-```text
-warm beige
-```
+Il verde resta soltanto per natura, vegetazione, acqua, dati ambientali e lo stato «successo».
 
-Colore tecnico:
-
-```text
-muted cream
-```
-
-Testo:
-
-```text
-deep charcoal
-```
-
-Il verde non è più colore dominante.
-
-Verde può restare soltanto per:
-
-* natura;
-* vegetazione;
-* acqua;
-* elementi geografici;
-* dati ambientali.
+La tavolozza precedente (marrone, rosso bruciato, crema, carbone) è superata.
 
 ## TOKEN CSS OBBLIGATORI
 
@@ -456,42 +441,9 @@ Questo linguaggio deve ricorrere in:
 * schede;
 * fonti.
 
-## GRIGLIA
+## GRIGLIA E TEXTURE
 
-Griglia visibile in modo sottile.
-
-Può ricordare:
-
-* carta millimetrata;
-* coordinate;
-* CAD;
-* mappe;
-* editor di codice.
-
-Non rendere griglia sempre visibile.
-
-Usala in:
-
-* hero;
-* mappe;
-* sezioni dati;
-* sfondi tecnici.
-
-## TEXTURE
-
-Sono ammesse texture leggere.
-
-Esempi:
-
-* paper grain;
-* noise;
-* griglia;
-* linee;
-* pattern cartografici.
-
-Opacity molto bassa.
-
-Texture non deve rendere testo difficile da leggere.
+Dal 2.11.2026 nessuna griglia e nessuna grana: la carta è piatta, come su albertopecchini.it. La struttura la danno i fili d'inchiostro velato (16 %, 42 %) e i pannelli.
 
 ## OMBRE
 
@@ -555,30 +507,19 @@ Monospace:
 
 Non usare monospace per intera pagina.
 
-## FONT MODERNI
+## FONT
 
-Preferenza:
+Gli stessi di albertopecchini.it, self-hosted dai pacchetti @fontsource:
 
-* Geist;
-* Inter;
-* IBM Plex Sans;
-* Manrope;
-* DM Sans;
-* Space Grotesk;
+* **Archivo** (variabile: peso 100–900, larghezza 62–125 %) per titoli, testo e navigazione; i titoli si stringono (94 %), il nome in copertina di più (86 %), i numeri grandi ancora di più (78 %);
+* **Cascadia Code** (variabile sul peso) per etichette, tasti, coordinate, date, ID e dati;
+* **Instrument Serif** in corsivo per una sola parola d'accento in un titolo («rivalta *sul* mincio»).
 
-ma verifica sempre licenza, performance e dipendenze.
+Non si aggiunge un quarto carattere e non si caricano caratteri da host esterni.
 
-Monospace:
+### La regola del minuscolo
 
-* Geist Mono;
-* IBM Plex Mono;
-* JetBrains Mono;
-
-quando realmente utile.
-
-Non installare tutti.
-
-Scegli sistema coerente.
+Tutto il testo visibile è in minuscolo, nomi propri compresi, con `text-transform: lowercase` sul `body`: nell'HTML il testo resta scritto normale, così titolo della pagina, motori di ricerca e lettori di schermo lo leggono come si scrive. Fanno eccezione ciò che scrive il visitatore, il codice, le locandine originali e i valori misurati del meteo («°C», «hPa», «ONO»).
 
 ## HEADLINE
 
@@ -590,7 +531,7 @@ Titoli:
 * tracking leggermente negativo;
 * forte presenza.
 
-Non usare serif classico come font dominante.
+Non usare serif classico come font dominante: il corsivo graziato è per una parola sola.
 
 ## MONOSPACE
 
@@ -607,19 +548,16 @@ Questo crea linguaggio tecnico senza rendere pagina "programmatore".
 
 ## MICRO-LABEL
 
-Piccole label possono essere:
+Piccole etichette in mono, minuscole, passo naturale (niente maiuscole, niente tracking):
 
 ```text
-LIVE
-OFFICIAL
-OSM
-UPDATED
-SOURCE
-LOCAL
-ARCHIVE
+live
+ufficiale
+osm
+aggiornato
+fonte
+archivio
 ```
-
-Usa monospace e tracking leggermente positivo.
 
 ## GIORNALE
 

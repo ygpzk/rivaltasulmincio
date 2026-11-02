@@ -3,64 +3,76 @@
  * solo questi nomi, mai valori diretti, e usano il significato (--color-text,
  * --color-surface) non il colore.
  *
- * La struttura è quella di STYLE.md. I valori vengono dai documenti
- * specializzati dove esistono e concordano (SPACING, BORDERS, RESPONSIVE,
- * ANIMATIONS, ICONS; TYPOGRAPHY per scala, pesi, interlinea). Dove il nuovo
- * STYLE.md li cambia, o il documento non esiste, il valore è deciso qui:
- *   - colori: STYLE.md «PALETTE» — marrone, rosso bruciato, crema, carbone —
- *     al posto del verde di COLORS.md; il verde resta per natura, acqua,
- *     dati ambientali e per lo stato «successo»;
- *   - font: STYLE.md «FONT MODERNI» — Geist e Geist Mono (fonts.css);
- *   - radius e ombre: RADIUS.md e SHADOWS.md non esistono; direzione da
- *     STYLE.md «RADIUS» (2·4·6·8) e «OMBRE» (offset sottile, ombra dura).
- * Contrasto: tutti i testi su crema e su marrone scuro superano 4,5:1 (AA).
+ * Dal 2.11.2026 il sito veste lo stesso linguaggio di albertopecchini.it
+ * (STYLE.md «PALETTE», «FONT»): carta, inchiostro e minio, Archivo per
+ * titoli e testo, Cascadia Code per etichette e dati, Instrument Serif in
+ * corsivo per una parola d'accento; tutto il testo visibile in minuscolo
+ * (base.css). Il verde resta alla natura, all'acqua e allo stato «successo».
+ * Contrasto: inchiostro su carta 17:1, grafite su carta 6:1, minio profondo
+ * su carta 5,3:1; sul minio pieno si scrive in inchiostro (4,8:1), non in
+ * bianco, che non arriva ad AA.
  */
 :root {
   color-scheme: light;
 
+  /* ── Tavolozza: carta, inchiostro, minio ─────────────────────────────── */
+  --paper: #f3f1ec;
+  --paper-2: #eae7e0;
+  --paper-3: #dedad1;
+  --ink: #10110f;
+  --ink-2: #1b1c19;
+  --ink-3: #2b2c28;
+  --graphite: #5a5b55;
+  --minio: #e5481f;
+  --minio-deep: #b5360f;
+  --minio-bright: #ff6a3d;
+
   /* ── Colori: superfici ───────────────────────────────────────────────── */
-  --color-bg: #f3ede0; /* crema cartacea, fondo principale */
-  --color-surface: #faf6ec; /* pannello */
-  --color-surface-raised: #fffdf7; /* scheda: quasi bianca */
-  --color-surface-muted: #e9e1d0; /* beige caldo: testate di pannello e tabella */
-  --color-surface-inverse: #2e1c12; /* pannello marrone scuro */
-  --color-surface-inverse-raised: #3d2719;
+  --color-bg: var(--paper);
+  --color-surface: var(--paper);
+  --color-surface-raised: #f8f7f3; /* scheda: un passo più chiara della carta, mai bianco puro */
+  --color-surface-muted: var(--paper-2); /* testate di pannello e tabella */
+  --color-surface-inverse: var(--ink);
+  --color-surface-inverse-raised: var(--ink-2);
 
   /* ── Colori: testo ───────────────────────────────────────────────────── */
-  --color-text: #1f1a16; /* carbone caldo */
-  --color-text-secondary: #5e5047;
-  --color-text-muted: #75665a; /* 4,8:1 su crema: solo per contenuto non interattivo */
-  --color-text-strong: #4a2b1a; /* titoli: marrone profondo */
-  --color-text-inverse: #f3ede0;
-  --color-text-inverse-secondary: #cdbfae;
-  --color-text-inverse-muted: #a8988a;
+  --color-text: var(--ink);
+  --color-text-secondary: var(--graphite);
+  --color-text-muted: #6b6c66; /* 4,9:1 su carta: solo per contenuto non interattivo */
+  --color-text-strong: var(--ink);
+  --color-text-inverse: var(--paper);
+  --color-text-inverse-secondary: #a5a59c;
+  --color-text-inverse-muted: #92918c;
 
   /* ── Colori: marca ───────────────────────────────────────────────────── */
-  /* Dominante: marrone profondo. Superfici importanti, titoli, controlli secondari. */
-  --color-primary: #4a2b1a;
-  --color-primary-hover: #3a2013;
-  --color-primary-active: #2e1c12;
-  --color-primary-soft: #e6dccb;
-  /* Identitario: rosso bruciato. Azioni, link, stato attivo, selezione. */
-  --color-accent: #a63a1a;
-  --color-accent-hover: #8a2f14;
-  --color-accent-soft: #f1dcd2;
-  --color-accent-on-dark: #e2865f; /* stesso ruolo sulle superfici scure */
+  /* Dominante: inchiostro. Tasti pieni, superfici scure, titoli. */
+  --color-primary: var(--ink);
+  --color-primary-hover: var(--ink-2);
+  --color-primary-active: var(--ink-3);
+  --color-primary-soft: var(--paper-2);
+  /* Identitario: minio. Link, stato attivo, selezione, avanzamento. Come testo
+     si usa il minio profondo (AA su carta); il minio pieno è riempimento. */
+  --color-accent: var(--minio-deep);
+  --color-accent-hover: var(--minio);
+  --color-accent-fill: var(--minio);
+  --color-accent-soft: #f6dcd3;
+  --color-accent-on-dark: var(--minio-bright); /* stesso ruolo sulle superfici scure */
+  --color-on-accent: var(--ink); /* inchiostro sul minio: il bianco non arriva ad AA */
 
-  /* ── Colori: bordi ───────────────────────────────────────────────────── */
-  --color-border: #cfc3ae;
-  --color-border-subtle: #e0d6c3;
-  --color-border-strong: #8c7660;
-  --color-border-inverse: #4e3a2c;
-  --color-border-inverse-strong: #7a604c;
+  /* ── Colori: bordi (inchiostro velato, come in AP) ────────────────────── */
+  --color-border: rgb(16 17 15 / 0.16);
+  --color-border-subtle: rgb(16 17 15 / 0.1);
+  --color-border-strong: rgb(16 17 15 / 0.42);
+  --color-border-inverse: rgb(243 241 236 / 0.17);
+  --color-border-inverse-strong: rgb(243 241 236 / 0.45);
 
   /* ── Colori: stati ───────────────────────────────────────────────────── */
-  --color-success: #3f7651;
-  --color-success-soft: #ddebe0;
-  --color-warning: #b98224;
-  --color-warning-soft: #f4e8cc;
-  --color-danger: #8b2a2a;
-  --color-danger-soft: #f2dcda;
+  --color-success: #2f7a4a;
+  --color-success-soft: #dcebe0;
+  --color-warning: #a97a1c;
+  --color-warning-soft: #f3e7c8;
+  --color-danger: var(--minio-deep);
+  --color-danger-soft: var(--color-accent-soft);
   --color-info: #4b6c7a;
   --color-info-soft: #dfe7ea;
 
@@ -69,11 +81,6 @@
   --color-water: #3f7a78;
   --color-nature: #4e7a4b;
   --color-earth: #8a6a4a;
-
-  /* ── Colori: texture (STYLE.md «GRIGLIA», «TEXTURE») ─────────────────── */
-  --color-grid: rgba(74, 43, 26, 0.09);
-  --color-grid-inverse: rgba(243, 237, 224, 0.07);
-  --grid-size: 24px;
 
   /* ── Mappa (COLORS.md «Mappe») ───────────────────────────────────────── */
   --map-water: #7fa9a5;
@@ -85,7 +92,7 @@
   --map-boundary: #8f938a;
   --map-label: #26312b;
 
-  /* ── Categorie dei luoghi: coerenti con la palette, il verde solo alla natura ── */
+  /* ── Categorie dei luoghi: toni sobri sulla carta, il verde solo alla natura ── */
   --category-business: #b5652f;
   --category-services: #4f6a78;
   --category-culture: #7b4f5a;
@@ -94,44 +101,51 @@
   --category-mobility: #6e6862;
   --category-history: #6b4a33;
 
-  /* ── Tipografia (STYLE.md «TIPOGRAFIA», TYPOGRAPHY.md per scala e pesi) ─ */
+  /* ── Tipografia (fonts.css): Archivo, Cascadia Code, Instrument Serif ── */
   --font-sans:
-    'Geist Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+    'Archivo Variable', 'Archivo', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, sans-serif;
   --font-mono:
-    'Geist Mono Variable', ui-monospace, 'Cascadia Mono', 'SF Mono', Menlo, Consolas,
-    'Liberation Mono', monospace;
+    'Cascadia Code Variable', 'Cascadia Code', 'Cascadia Mono', ui-monospace, 'SF Mono', Menlo,
+    Consolas, monospace;
+  --font-serif: 'Instrument Serif', 'Iowan Old Style', 'Times New Roman', serif;
 
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-md: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: clamp(1.5rem, 2.5vw, 2rem);
-  --text-3xl: clamp(2rem, 4vw, 3rem);
-  --text-display: clamp(2.75rem, 7vw, 6rem);
-  --text-stat: clamp(2rem, 5vw, 3.5rem); /* numeri principali (TYPOGRAPHY.md) */
-  --text-h4: 1.05rem; /* TYPOGRAPHY.md «H4» */
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.1875rem;
+  --text-xl: clamp(1.3125rem, 1.1rem + 0.85vw, 1.875rem);
+  --text-2xl: clamp(1.75rem, 1.25rem + 2.1vw, 3.25rem);
+  --text-3xl: clamp(2.25rem, 1.4rem + 3.4vw, 4.75rem);
+  --text-display: clamp(2.75rem, 1.2rem + 6vw, 7rem);
+  --text-stat: clamp(2.25rem, 1.4rem + 3.4vw, 4rem); /* numeri principali */
+  --text-h4: clamp(1.125rem, 1.05rem + 0.4vw, 1.375rem);
+  --text-label: 0.875rem; /* etichette, tasti, dati in mono */
 
   --font-regular: 400;
   --font-medium: 500;
-  --font-semibold: 600;
-  --font-strong: 650; /* TYPOGRAPHY.md «Peso» */
-  --font-bold: 700;
+  --font-semibold: 560;
+  --font-strong: 600;
+  --font-bold: 640;
+
+  /* Larghezze di Archivo: i titoli si stringono, i numeri di più. */
+  --stretch-display: 86%;
+  --stretch-heading: 94%;
+  --stretch-numbers: 78%;
 
   --leading-none: 1;
-  --leading-display: 0.95;
-  --leading-tight: 1.1;
-  --leading-snug: 1.25;
+  --leading-display: 0.94;
+  --leading-tight: 1;
+  --leading-snug: 1.12;
   --leading-ui: 1.2;
   --leading-normal: 1.5;
   --leading-relaxed: 1.6;
 
   --tracking-display: -0.04em;
-  --tracking-tight: -0.03em;
-  --tracking-heading: -0.02em;
+  --tracking-tight: -0.035em;
+  --tracking-heading: -0.025em;
   --tracking-normal: 0;
-  --tracking-wide: 0.08em; /* micro-label monospace */
+  --tracking-wide: 0; /* le etichette in mono non si spaziano più: minuscole, passo naturale */
 
   /* ── Spaziature (SPACING.md) ─────────────────────────────────────────── */
   --space-0: 0;
@@ -149,12 +163,12 @@
   --space-24: 6rem;
   --space-32: 8rem;
 
-  /* ── Radius (STYLE.md «RADIUS»: geometria tecnica) ───────────────────── */
+  /* ── Radius: il linguaggio è ortogonale, i raggi minimi ──────────────── */
   --radius-none: 0;
   --radius-sm: 2px;
-  --radius-md: 4px;
+  --radius-md: 2px;
   --radius-lg: 6px;
-  --radius-xl: 8px;
+  --radius-xl: 12px;
 
   /* ── Bordi (BORDERS.md) ──────────────────────────────────────────────── */
   --border-width-thin: 1px;
@@ -164,27 +178,26 @@
   --border-color-subtle: var(--color-border-subtle);
   --border-color-strong: var(--color-border-strong);
 
-  /* ── Ombre (STYLE.md «OMBRE»: offset sottile, ombra dura, mai blur enormi) ── */
+  /* ── Ombre: quasi nessuna; quella dei menu a comparsa è lunga e tenue ─── */
   --shadow-none: none;
-  --shadow-sm: 0 1px 2px rgba(31, 26, 22, 0.08);
-  --shadow-md: 2px 2px 0 var(--color-border);
-  --shadow-lg: 0 8px 24px -8px rgba(31, 26, 22, 0.28);
+  --shadow-sm: 0 1px 2px rgb(16 17 15 / 0.08);
+  --shadow-md: 0 1.5rem 3rem -1.5rem rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 1.5rem 3rem -1rem rgb(0 0 0 / 0.35);
 
-  /* ── Layout (RESPONSIVE.md, SPACING.md) ──────────────────────────────── */
+  /* ── Layout: grondaie larghe, colonna di lettura a 76rem come in AP ───── */
   --container-sm: 640px;
   --container-md: 768px;
   --container-lg: 1024px;
   --container-xl: 1280px;
-  --container-max: 1440px;
-  --container-padding-mobile: 1rem;
+  --container-max: 76rem;
+  --container-padding-mobile: 1.25rem;
   --container-padding-tablet: 2rem;
-  --container-padding-desktop: 3rem;
-  --page-padding: var(--container-padding-mobile);
+  --container-padding-desktop: 3.5rem;
+  --page-padding: clamp(1.25rem, 0.5rem + 4vw, 5rem);
   --content-max: 70ch;
-  /* Separazione tra sezioni (SPACING.md «Sezioni»: 48–96 px): metà per lato, le sezioni sono adiacenti. */
-  --section-padding: clamp(1.5rem, 3.5vw, 3rem);
+  --section-padding: clamp(2rem, 1.5rem + 3vw, 4.5rem);
+  --header-h: 4.25rem;
   --touch-target: 44px;
-  /* Controlli mappa e azioni frequenti su touch (RESPONSIVE.md «Touch target»: preferibile 48). */
   --touch-target-large: 48px;
 
   /* ── z-index ─────────────────────────────────────────────────────────── */
@@ -195,18 +208,18 @@
   --z-modal: 40;
   --z-toast: 50;
 
-  /* ── Motion (ANIMATIONS.md «Timing», «Easing») ───────────────────────── */
+  /* ── Motion (ANIMATIONS.md «Timing», «Easing»; le curve sono quelle di AP) ── */
   --duration-instant: 80ms;
   --duration-micro: 120ms;
-  --duration-fast: 180ms;
+  --duration-fast: 150ms;
   --duration-normal: 240ms;
-  --duration-medium: 320ms;
-  --duration-slow: 450ms;
-  --duration-cinematic: 650ms;
-  --ease-standard: cubic-bezier(0.25, 0.46, 0.45, 0.94); /* power2.out */
-  --ease-enter: cubic-bezier(0.19, 1, 0.22, 1); /* expo.out */
-  --ease-exit: cubic-bezier(0.55, 0.085, 0.68, 0.53); /* power2.in */
-  --ease-emphasis: cubic-bezier(0.34, 1.3, 0.64, 1); /* back.out, moderato */
+  --duration-medium: 300ms;
+  --duration-slow: 550ms;
+  --duration-cinematic: 800ms;
+  --ease-standard: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-exit: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-emphasis: cubic-bezier(0.34, 1.3, 0.64, 1);
 
   /* ── Icone (ICONS.md) ────────────────────────────────────────────────── */
   --icon-stroke-width: 1.75px;
@@ -214,10 +227,15 @@
   --icon-stroke-width-strong: 2px;
 }
 
+@media (min-width: 768px) {
+  :root {
+    --header-h: 5rem;
+  }
+}
+
 /*
- * Superficie scura (STYLE.md «CONTRASTO»: pannello marrone scuro, testo crema,
- * accento rosso). Ridefinisce i token semantici, così i componenti dentro
- * non sanno di essere su fondo scuro.
+ * Superficie scura (il tema «inchiostro» di AP): ridefinisce i token
+ * semantici, così i componenti dentro non sanno di essere su fondo scuro.
  */
 .inverse {
   --color-text: var(--color-text-inverse);
@@ -232,35 +250,25 @@
   --color-border-strong: var(--color-border-inverse-strong);
   --color-accent: var(--color-accent-on-dark);
   --color-accent-hover: var(--color-text-inverse);
+  --color-accent-fill: var(--color-accent-on-dark);
   --color-accent-soft: var(--color-surface-inverse-raised);
+  --color-primary: var(--paper);
+  --color-primary-hover: var(--paper-2);
   --color-primary-soft: var(--color-surface-inverse-raised);
-  --color-grid: var(--color-grid-inverse);
+  --color-success: #5fbf7a;
+  --color-warning: #d9a640;
+  --color-danger: var(--minio-bright);
   background: var(--color-surface-inverse);
   color: var(--color-text);
+  color-scheme: dark;
 }
 
 /*
- * Breakpoint (RESPONSIVE.md «Breakpoint»): 640 · 768 · 1024 · 1280 · 1440 · 1920,
- * più il confine di classe 480 (Mobile → Large Mobile) dove il layout cambia
- * davvero (pulsanti e ricerca a tutta larghezza sotto). Nessun breakpoint per
- * modelli specifici. Le custom property non funzionano dentro @media: i valori
- * vanno scritti letteralmente e devono coincidere con questa lista.
+ * Breakpoint (RESPONSIVE.md «Breakpoint»): 480 · 640 · 768 · 1024 · 1100
+ * (la testata si apre) · 1280 · 1440. Le custom property non funzionano
+ * dentro @media: i valori vanno scritti letteralmente.
  *
  * Input (RESPONSIVE.md «Matrice input»): gli :hover stanno dentro
  * `(hover: hover) and (pointer: fine)`, i bersagli allargati dentro
  * `(hover: none) and (pointer: coarse)`.
- *
- * Safe area (RESPONSIVE.md «Safe areas»): non serve finché il viewport non è
- * «viewport-fit=cover»; il browser tiene già il layout fuori da notch e barra.
  */
-@media (min-width: 768px) {
-  :root {
-    --page-padding: var(--container-padding-tablet);
-  }
-}
-
-@media (min-width: 1024px) {
-  :root {
-    --page-padding: var(--container-padding-desktop);
-  }
-}

@@ -32,11 +32,13 @@ Il markup si scrive con il tag `html` di `src/lib/html.ts`: ogni interpolazione 
 
 ## Stile
 
-STYLE.md guida il linguaggio visivo (marrone, rosso bruciato, crema, carbone; sans + monospace; pannelli, bordi, griglia, metadata). I valori stanno solo in `src/styles/tokens.css`, con la struttura dei token che STYLE.md rende obbligatoria; i componenti usano i token semantici, mai valori diretti.
+STYLE.md guida il linguaggio visivo: dal 2.11.2026 è quello di albertopecchini.it (carta, inchiostro, minio; Archivo + Cascadia Code, una parola in Instrument Serif corsivo; tutto in minuscolo; pannelli, fili sottili, metadata). I valori stanno solo in `src/styles/tokens.css`, con la struttura dei token che STYLE.md rende obbligatoria; i componenti usano i token semantici, mai valori diretti.
 
-- **Font** — Geist e Geist Mono, self-hosted dai pacchetti `@fontsource-variable/geist` e `@fontsource-variable/geist-mono` (licenza OFL-1.1, file LICENSE nei pacchetti), solo i sottoinsiemi latin e latin-ext, dichiarati in `src/styles/fonts.css`; Vite copia i woff2 in `dist/assets` con hash.
+- **Font** — Archivo, Cascadia Code e Instrument Serif, self-hosted dai pacchetti `@fontsource-variable/archivo`, `@fontsource-variable/cascadia-code` e `@fontsource/instrument-serif` (licenza OFL, file LICENSE nei pacchetti), solo i sottoinsiemi latin e latin-ext, dichiarati in `src/styles/fonts.css`; Vite copia i woff2 in `dist/assets` con hash.
+- **Minuscolo** — tutto il testo visibile è minuscolo via CSS (`text-transform: lowercase` sul `body`); nell'HTML resta scritto normale. Fanno eccezione i campi di testo, il codice, le locandine e i valori del meteo.
+- **Testata e piè di pagina** — la composizione di albertopecchini.it: nome al centro e voci ai lati da 1100 px, menu a tutto schermo sotto (`src/nav/client.ts`); piè di pagina d'inchiostro, centrato, con la firma che porta a `https://www.albertopecchini.it`.
 - **Superfici scure** — la classe `inverse` ridefinisce i token semantici (testo, bordi, accento, superfici): un componente dentro un pannello scuro non cambia codice.
-- **Pannelli** — `panel` con `panel__head` (mono, maiuscolo), `panel__body`, `panel__foot`; è il modulo ricorrente di giornale, mappa, meteo, fonti e dati.
+- **Pannelli** — `panel` con `panel__head` (mono), `panel__body`, `panel__foot`; è il modulo ricorrente di giornale, mappa, meteo, fonti e dati.
 - **Motion** — `src/animations/`: reveal delle sezioni e contatori dei numeri con la Web Animations API, solo per ciò che sta sotto la piega, niente con `prefers-reduced-motion`. Nessuna libreria finché CSS e WAAPI bastano (ANIMATIONS.md «Gerarchia strumenti»).
 
 ## Mappa

@@ -36,26 +36,24 @@ export function render(): PageResult {
   const official = sources.filter(isOfficial).length;
   const articles = archiveArticles(now).length;
 
-  const hero = html`<div class="hero grid-paper">
-    <div class="hero__main">
-      <p class="kicker">Atlante digitale locale <span class="kicker__sep" aria-hidden="true">/</span> <span>${center.lat.toFixed(5)} N</span> <span>${center.lng.toFixed(5)} E</span></p>
-      <h1 class="hero__title display">Rivalta<br />sul Mincio</h1>
-      <p class="lead">${site.tagline}</p>
-      ${searchForm()}
-      <p class="hero__text">${site.institutional}</p>
-    </div>
-    <aside class="hero__panel inverse" aria-labelledby="stato-dati">
-      <p class="panel__title" id="stato-dati">Stato dei dati</p>
-      <dl class="hero__data">
-        <div><dt>Luoghi</dt><dd>${places}</dd></div>
-        <div><dt>Categorie</dt><dd>${groups.length}</dd></div>
-        <div><dt>Articoli</dt><dd>${articles}</dd></div>
-        <div><dt>Fonti</dt><dd>${sources.length}</dd></div>
-        ${osmDate ? html`<div><dt>Dati OSM</dt><dd><time datetime="${osmTimestamp}">${osmDate}</time></dd></div>` : ''}
-        ${site.features.weather ? html`<div><dt>Meteo</dt><dd>${METEOMINCIO.name}</dd></div>` : ''}
-        <div><dt>Build</dt><dd><time datetime="${now.toISOString()}">${today}</time></dd></div>
-      </dl>
-    </aside>
+  // L'apertura: come la copertina di AP, sulla carta, senza riquadri. Il
+  // «sul» in corsivo graziato è la parola d'accento del titolo; i numeri
+  // dell'atlante stanno in una riga in mono sotto la ricerca.
+  const hero = html`<div class="hero">
+    <p class="kicker">Atlante digitale locale <span class="kicker__sep" aria-hidden="true">/</span> <span>${center.lat.toFixed(5)} N</span> <span>${center.lng.toFixed(5)} E</span></p>
+    <h1 class="hero__title display">Rivalta <span class="serif-i">sul</span> Mincio</h1>
+    <p class="lead hero__lead">${site.tagline}</p>
+    ${searchForm()}
+    <p class="hero__text">${site.institutional}</p>
+    <dl class="hero__data" aria-label="Stato dei dati">
+      <div><dt>Luoghi</dt><dd>${places}</dd></div>
+      <div><dt>Categorie</dt><dd>${groups.length}</dd></div>
+      <div><dt>Articoli</dt><dd>${articles}</dd></div>
+      <div><dt>Fonti</dt><dd>${sources.length}</dd></div>
+      ${osmDate ? html`<div><dt>Dati OSM</dt><dd><time datetime="${osmTimestamp}">${osmDate}</time></dd></div>` : ''}
+      ${site.features.weather ? html`<div><dt>Meteo</dt><dd>${METEOMINCIO.name}</dd></div>` : ''}
+      <div><dt>Build</dt><dd><time datetime="${now.toISOString()}">${today}</time></dd></div>
+    </dl>
   </div>`;
 
   const giornale = lead

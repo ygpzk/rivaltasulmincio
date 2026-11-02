@@ -9,8 +9,6 @@ lerna-debug.log*
 
 node_modules
 
-# Fogli generati dei simboli d'autunno: grandi, si rifanno con scripts/autunno-simboli.ts
-data/autunno/fogli
 dist
 dist-ssr
 *.local

@@ -1,9 +1,13 @@
 /*
- * Menu della testata (RESPONSIVE.md «Matrice navigazione»): sotto i 768 px la
- * navigazione si apre da un pulsante, chiusa di default; da 768 in su le voci
- * sono sempre visibili e lo stato qui impostato non ha effetto (CSS).
+ * Menu della testata (RESPONSIVE.md «Matrice navigazione»): sotto i 1100 px
+ * la navigazione è un pannello a tutto schermo che si apre dal tasto, chiuso
+ * di default; da 1100 in su le voci stanno ai lati del nome e lo stato qui
+ * impostato non ha effetto (CSS). Con il menu aperto la pagina sotto non
+ * scorre; se la finestra si allarga oltre la soglia il menu si chiude da sé.
  * Senza JavaScript il pulsante resta nascosto e le voci restano in vista.
  */
+const WIDE = window.matchMedia('(min-width: 1100px)');
+
 export function mountMenu(button: HTMLElement): void {
   const header = button.closest<HTMLElement>('.site-header');
   const controls = button.getAttribute('aria-controls');
@@ -13,6 +17,7 @@ export function mountMenu(button: HTMLElement): void {
   const set = (open: boolean): void => {
     header.dataset.menu = open ? 'open' : 'closed';
     button.setAttribute('aria-expanded', String(open));
+    document.body.classList.toggle('is-locked', open);
   };
 
   set(false);
@@ -20,13 +25,13 @@ export function mountMenu(button: HTMLElement): void {
 
   button.addEventListener('click', () => set(header.dataset.menu !== 'open'));
 
-  header.addEventListener('keydown', (event) => {
+  document.addEventListener('keydown', (event) => {
     if (event.key !== 'Escape' || header.dataset.menu !== 'open') return;
     set(false);
     button.focus();
   });
 
-  document.addEventListener('click', (event) => {
-    if (header.dataset.menu === 'open' && !header.contains(event.target as Node | null)) set(false);
+  WIDE.addEventListener('change', (event) => {
+    if (event.matches && header.dataset.menu === 'open') set(false);
   });
 }

@@ -1,8 +1,9 @@
 /*
  * Gerarchia tipografica (STYLE.md «TIPOGRAFIA», «HEADLINE», «MONOSPACE»,
- * «MICRO-LABEL»; scala e pesi da TYPOGRAPHY.md). Sans per titoli e testo,
- * mono per coordinate, timestamp, ID, etichette e metadata. Mai mono per
- * un'intera pagina. Stesso livello semantico = stesso stile.
+ * «MICRO-LABEL»). Archivo per titoli e testo, modulato con peso e larghezza;
+ * Cascadia Code per coordinate, date, ID, etichette e metadata, mai per
+ * un'intera pagina; Instrument Serif in corsivo per una parola d'accento.
+ * Niente maiuscole: il minuscolo è della pagina (base.css).
  */
 
 h1,
@@ -13,46 +14,86 @@ h4 {
   text-wrap: balance;
 }
 
-/* Titoli grandi, compatti, pesanti, tracking leggermente negativo. */
+/* Titoli compatti e stretti, tracking negativo: la voce di AP. */
 h1 {
   font-size: var(--text-3xl);
-  line-height: var(--leading-none);
-  font-weight: var(--font-bold);
+  font-weight: var(--font-semibold);
+  font-stretch: var(--stretch-heading);
+  line-height: var(--leading-display);
   letter-spacing: var(--tracking-tight);
 }
 
 h2 {
   font-size: var(--text-2xl);
+  font-weight: var(--font-semibold);
+  font-stretch: var(--stretch-heading);
   line-height: var(--leading-tight);
-  font-weight: var(--font-strong);
-  letter-spacing: var(--tracking-heading);
+  letter-spacing: var(--tracking-tight);
 }
 
 h3 {
   font-size: var(--text-xl);
-  line-height: var(--leading-snug);
   font-weight: var(--font-semibold);
+  font-stretch: var(--stretch-heading);
+  line-height: 1.08;
   letter-spacing: var(--tracking-heading);
 }
 
 h4 {
   font-size: var(--text-h4);
-  line-height: var(--leading-snug);
   font-weight: var(--font-semibold);
+  line-height: var(--leading-ui);
+  letter-spacing: -0.015em;
 }
 
-/* Titolo hero: usato raramente. */
+/* parole lunghe (nomi di dominio, termini tecnici) non devono mai allargare la pagina */
+h1,
+h2,
+h3,
+h4,
+p,
+dd,
+li,
+a,
+figcaption {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Titolo hero: usato raramente, più stretto e più pesante. */
 .display {
   font-size: var(--text-display);
+  font-weight: var(--font-strong);
+  font-stretch: var(--stretch-display);
   line-height: var(--leading-display);
-  font-weight: var(--font-bold);
   letter-spacing: var(--tracking-display);
+}
+
+/* Il corsivo graziato: una parola per titolo, ingrandita perché accanto al grottesco non sembri più piccola. */
+.serif-i {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-stretch: 100%;
+  letter-spacing: -0.01em;
+}
+
+h1 .serif-i,
+h2 .serif-i,
+.display .serif-i {
+  font-size: 1.07em;
+  line-height: 0.9;
 }
 
 /* Body large: introduzioni e descrizioni principali. */
 .lead {
   font-size: var(--text-lg);
-  line-height: var(--leading-relaxed);
+  line-height: 1.42;
+  letter-spacing: -0.012em;
+  text-wrap: pretty;
 }
 
 /* Body small: testo compatto. */
@@ -74,18 +115,17 @@ h4 {
   font-variant-numeric: tabular-nums;
 }
 
-/* Micro-label (STYLE.md): mono, maiuscolo, tracking positivo. Unico uso ammesso del maiuscolo. */
+/* Etichetta (STYLE.md «MICRO-LABEL»): mono, minuscola, passo naturale, grafite. */
 .label {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  line-height: var(--leading-ui);
-  font-weight: var(--font-medium);
+  line-height: 1.4;
+  font-weight: var(--font-regular);
   letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
   color: var(--color-text-secondary);
 }
 
-/* Occhiello tecnico: «GIORNALE / 20.09.2026», «ATLANTE / 45.18019 N». */
+/* Occhiello tecnico: «atlante / 45.18019 n», con la barra in minio. */
 .kicker {
   display: flex;
   flex-wrap: wrap;
@@ -93,10 +133,8 @@ h4 {
   gap: var(--space-1) var(--space-2);
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  line-height: var(--leading-ui);
-  font-weight: var(--font-medium);
-  letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
+  line-height: 1.4;
+  font-weight: var(--font-regular);
   font-variant-numeric: tabular-nums;
   color: var(--color-text-secondary);
 }
@@ -105,14 +143,15 @@ h4 {
   color: var(--color-accent);
 }
 
-/* Numeri principali: il numero pesa più della sua descrizione. */
+/* Numeri principali: stretti e pesanti, il numero pesa più della sua descrizione. */
 .stat {
   display: inline-block;
   font-size: var(--text-stat);
+  font-weight: var(--font-semibold);
+  font-stretch: var(--stretch-numbers);
   line-height: var(--leading-display);
-  font-weight: var(--font-bold);
   font-variant-numeric: tabular-nums;
-  letter-spacing: var(--tracking-display);
+  letter-spacing: -0.05em;
   color: var(--color-text-strong);
 }
 
@@ -135,9 +174,7 @@ h4 {
   gap: var(--space-2);
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  line-height: var(--leading-ui);
-  letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
+  line-height: 1.4;
   color: var(--color-text-secondary);
 }
 
@@ -162,10 +199,37 @@ h4 {
   color: var(--color-text);
 }
 
+/* Il nome del sito: Archivo stretto e pesante, in minuscolo come tutto il resto. */
 .wordmark {
   font-weight: var(--font-bold);
-  letter-spacing: var(--tracking-heading);
-  text-transform: uppercase;
+  font-stretch: var(--stretch-heading);
+  letter-spacing: -0.02em;
   color: var(--color-text-strong);
   text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Link con sottolineatura che entra da sinistra ed esce verso destra (AP «uline»). */
+.uline {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) no-repeat 100% 100% / 0 1px;
+  background-origin: content-box;
+  transition:
+    background-size var(--duration-slow) var(--ease-enter),
+    color var(--duration-medium) ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .uline:hover {
+    color: inherit;
+    background-position: 0 100%;
+    background-size: 100% 1px;
+  }
+}
+
+.uline:focus-visible {
+  background-position: 0 100%;
+  background-size: 100% 1px;
 }

@@ -3,9 +3,9 @@ import { html, type Html } from '../lib/html';
 export type Crumb = { href?: string; label: string };
 
 /**
- * Testata di pagina: breadcrumb tecnico in mono (STYLE.md «breadcrumb
- * tecnici»), titolo (h1), descrizione, eventuale contenuto aggiuntivo.
- * Il breadcrumb parte sempre dalla Home; l'ultima voce è la pagina corrente.
+ * Testata di pagina: breadcrumb (etichette con la barra), titolo in graziato
+ * leggero (h1), descrizione, eventuale contenuto aggiuntivo. Il breadcrumb
+ * parte sempre dalla Home; l'ultima voce è la pagina corrente.
  */
 export function pageHeader(options: { title: string; lead?: Html | string; crumbs?: Crumb[]; extra?: Html }): Html {
   return html`<div class="page-header">

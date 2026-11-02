@@ -79,7 +79,7 @@
   min-width: 0;
   background: var(--color-surface);
   border: var(--border-width-thin) solid var(--color-border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-lg);
 }
 
 .map-block__head {
@@ -153,7 +153,7 @@
   font-family: var(--font-mono);
   background: var(--color-surface-raised);
   border: var(--border-width-thin) solid var(--color-border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-lg);
   pointer-events: none;
 }
 
@@ -235,7 +235,7 @@
   color: var(--color-text-secondary);
   background: transparent;
   border: var(--border-width-thin) solid transparent;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-lg);
   cursor: pointer;
 }
 
@@ -419,7 +419,7 @@
   justify-content: center;
   width: 32px;
   height: 32px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-lg);
   background: var(--color-primary);
   color: var(--color-text-inverse);
   border: var(--border-width-medium) solid var(--color-surface-raised);
@@ -450,7 +450,7 @@
 .map-canvas .leaflet-bar,
 .map-canvas.leaflet-touch .leaflet-bar {
   border: var(--border-width-thin) solid var(--color-border-strong);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
 }
 

@@ -1,9 +1,9 @@
 /*
- * Gerarchia tipografica (STYLE.md «TIPOGRAFIA», «HEADLINE», «MONOSPACE»,
- * «MICRO-LABEL»). Archivo per titoli e testo, modulato con peso e larghezza;
- * Cascadia Code per coordinate, date, ID, etichette e metadata, mai per
- * un'intera pagina; Instrument Serif in corsivo per una parola d'accento.
- * Niente maiuscole: il minuscolo è della pagina (base.css).
+ * Gerarchia tipografica (STYLE.md «TIPOGRAFIA»), sulla scala di
+ * reflection.ai: i titoli grandi in graziato leggero (Newsreader 350,
+ * tracking −0,05em), i titoli piccoli e il testo in grottesco (Hanken
+ * Grotesk, tracking −0,02em), le etichette maiuscole minuscole e spaziate
+ * (0,08em). Il mono resta per codice e tasti.
  */
 
 h1,
@@ -14,36 +14,38 @@ h4 {
   text-wrap: balance;
 }
 
-/* Titoli compatti e stretti, tracking negativo: la voce di AP. */
+/* headline-l: il titolo di pagina in graziato leggero. */
 h1 {
-  font-size: var(--text-3xl);
-  font-weight: var(--font-semibold);
-  font-stretch: var(--stretch-heading);
-  line-height: var(--leading-display);
-  letter-spacing: var(--tracking-tight);
+  font-family: var(--font-serif);
+  font-size: var(--text-headline-l);
+  font-weight: var(--font-light);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-display);
 }
 
+/* heading-s: il titolo di sezione, in grottesco. */
 h2 {
-  font-size: var(--text-2xl);
-  font-weight: var(--font-semibold);
-  font-stretch: var(--stretch-heading);
+  font-size: var(--text-heading-s);
+  font-weight: var(--font-regular);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
 }
 
+/* title-serif: il titolo di una scheda. */
 h3 {
-  font-size: var(--text-xl);
-  font-weight: var(--font-semibold);
-  font-stretch: var(--stretch-heading);
-  line-height: 1.08;
+  font-family: var(--font-serif);
+  font-size: var(--text-title-serif);
+  font-weight: var(--font-regular);
+  line-height: var(--leading-snug);
   letter-spacing: var(--tracking-heading);
 }
 
+/* title-sans. */
 h4 {
-  font-size: var(--text-h4);
-  font-weight: var(--font-semibold);
-  line-height: var(--leading-ui);
-  letter-spacing: -0.015em;
+  font-size: var(--text-title-sans);
+  font-weight: var(--font-medium);
+  line-height: 1.3;
+  letter-spacing: var(--tracking-normal);
 }
 
 /* parole lunghe (nomi di dominio, termini tecnici) non devono mai allargare la pagina */
@@ -63,49 +65,48 @@ p {
   text-wrap: pretty;
 }
 
-/* Titolo hero: usato raramente, più stretto e più pesante. */
+/* display: il titolo dell'apertura. */
 .display {
+  font-family: var(--font-serif);
   font-size: var(--text-display);
-  font-weight: var(--font-strong);
-  font-stretch: var(--stretch-display);
+  font-weight: var(--font-light);
   line-height: var(--leading-display);
+  letter-spacing: -0.045em;
+}
+
+/* Titolo di sezione grande in graziato (headline-m), per i moduli principali. */
+.headline {
+  font-family: var(--font-serif);
+  font-size: var(--text-headline-m);
+  font-weight: var(--font-light);
+  line-height: var(--leading-tight);
   letter-spacing: var(--tracking-display);
 }
 
-/* Il corsivo graziato: una parola per titolo, ingrandita perché accanto al grottesco non sembri più piccola. */
+/* Il corsivo del graziato: una parola d'accento. */
 .serif-i {
   font-family: var(--font-serif);
   font-style: italic;
-  font-weight: 400;
-  font-stretch: 100%;
-  letter-spacing: -0.01em;
+  font-weight: var(--font-light);
 }
 
-h1 .serif-i,
-h2 .serif-i,
-.display .serif-i {
-  font-size: 1.07em;
-  line-height: 0.9;
-}
-
-/* Body large: introduzioni e descrizioni principali. */
+/* body-l: introduzioni e descrizioni principali. */
 .lead {
   font-size: var(--text-lg);
-  line-height: 1.42;
-  letter-spacing: -0.012em;
+  line-height: 1.4;
   text-wrap: pretty;
 }
 
-/* Body small: testo compatto. */
+/* body-s: testo compatto. */
 .text-small {
   font-size: var(--text-sm);
-  line-height: var(--leading-normal);
+  line-height: 1.4;
 }
 
-/* Caption: didascalie, note. Mai per informazioni essenziali. */
+/* body-xs: didascalie, note. Mai per informazioni essenziali. */
 .caption {
   font-size: var(--text-xs);
-  line-height: var(--leading-normal);
+  line-height: 1.4;
   color: var(--color-text-secondary);
 }
 
@@ -113,28 +114,30 @@ h2 .serif-i,
 .mono {
   font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
 }
 
-/* Etichetta (STYLE.md «MICRO-LABEL»): mono, minuscola, passo naturale, grafite. */
+/* Etichetta «details»: maiuscola, piccola, spaziata, come su reflection.ai. */
 .label {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  line-height: 1.4;
-  font-weight: var(--font-regular);
+  font-size: var(--text-details);
+  line-height: 1.3;
+  font-weight: var(--font-medium);
   letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
   color: var(--color-text-secondary);
 }
 
-/* Occhiello tecnico: «atlante / 45.18019 n», con la barra in minio. */
+/* Occhiello: «Atlante / 45.18019 N». */
 .kicker {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   gap: var(--space-1) var(--space-2);
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  line-height: 1.4;
-  font-weight: var(--font-regular);
+  font-size: var(--text-details);
+  line-height: 1.3;
+  font-weight: var(--font-medium);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
   font-variant-numeric: tabular-nums;
   color: var(--color-text-secondary);
 }
@@ -143,15 +146,15 @@ h2 .serif-i,
   color: var(--color-accent);
 }
 
-/* Numeri principali: stretti e pesanti, il numero pesa più della sua descrizione. */
+/* Numeri principali: in graziato leggero, come un titolo. */
 .stat {
   display: inline-block;
+  font-family: var(--font-serif);
   font-size: var(--text-stat);
-  font-weight: var(--font-semibold);
-  font-stretch: var(--stretch-numbers);
-  line-height: var(--leading-display);
+  font-weight: var(--font-light);
+  line-height: 1;
   font-variant-numeric: tabular-nums;
-  letter-spacing: -0.05em;
+  letter-spacing: var(--tracking-tight);
   color: var(--color-text-strong);
 }
 
@@ -166,22 +169,24 @@ h2 .serif-i,
   font-variant-numeric: tabular-nums;
 }
 
-/* Breadcrumb tecnico (STYLE.md «CLAUDE CODE 2010»): separatori a barra, mai bordi. */
+/* Breadcrumb: etichette con la barra. */
 .crumbs ol {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   gap: var(--space-2);
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  line-height: 1.4;
+  font-size: var(--text-details);
+  line-height: 1.3;
+  font-weight: var(--font-medium);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
   color: var(--color-text-secondary);
 }
 
 .crumbs li + li::before {
   content: '/';
   margin-right: var(--space-2);
-  color: var(--color-accent);
+  color: var(--color-text-muted);
 }
 
 .crumbs a {
@@ -191,7 +196,7 @@ h2 .serif-i,
 
 @media (hover: hover) and (pointer: fine) {
   .crumbs a:hover {
-    color: var(--color-accent);
+    color: var(--color-text);
   }
 }
 
@@ -199,37 +204,43 @@ h2 .serif-i,
   color: var(--color-text);
 }
 
-/* Il nome del sito: Archivo stretto e pesante, in minuscolo come tutto il resto. */
+/* Il nome del sito: grottesco medio, con il marchio accanto (header.ts). */
 .wordmark {
-  font-weight: var(--font-bold);
-  font-stretch: var(--stretch-heading);
-  letter-spacing: -0.02em;
+  font-weight: var(--font-medium);
+  letter-spacing: var(--tracking-normal);
   color: var(--color-text-strong);
   text-decoration: none;
   white-space: nowrap;
 }
 
-/* Link con sottolineatura che entra da sinistra ed esce verso destra (AP «uline»). */
+/* Link con la sottolineatura che scorre (il «group relative» di reflection.ai). */
 .uline {
+  position: relative;
   display: inline-block;
   color: inherit;
   text-decoration: none;
-  background: linear-gradient(currentColor, currentColor) no-repeat 100% 100% / 0 1px;
-  background-origin: content-box;
-  transition:
-    background-size var(--duration-slow) var(--ease-enter),
-    color var(--duration-medium) ease;
+}
+
+.uline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.1em;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform var(--duration-medium) var(--ease-enter);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .uline:hover {
-    color: inherit;
-    background-position: 0 100%;
-    background-size: 100% 1px;
+  .uline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
   }
 }
 
-.uline:focus-visible {
-  background-position: 0 100%;
-  background-size: 100% 1px;
+.uline:focus-visible::after {
+  transform: scaleX(1);
 }

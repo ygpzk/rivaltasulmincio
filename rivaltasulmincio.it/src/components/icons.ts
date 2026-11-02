@@ -1,4 +1,7 @@
 import arrowRight from 'lucide-static/icons/arrow-right.svg?raw';
+import arrowUpRight from 'lucide-static/icons/arrow-up-right.svg?raw';
+import database from 'lucide-static/icons/database.svg?raw';
+import newspaper from 'lucide-static/icons/newspaper.svg?raw';
 import building2 from 'lucide-static/icons/building-2.svg?raw';
 import bus from 'lucide-static/icons/bus.svg?raw';
 import circleCheck from 'lucide-static/icons/circle-check.svg?raw';
@@ -37,6 +40,9 @@ import { raw, type Html } from '../lib/html';
  */
 const ICONS = {
   'arrow-right': arrowRight,
+  'arrow-up-right': arrowUpRight,
+  database,
+  newspaper,
   'building-2': building2,
   bus,
   'circle-check': circleCheck,

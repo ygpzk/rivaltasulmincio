@@ -1,56 +1,73 @@
 /* ── Testata ────────────────────────────────────────────────────────────── */
 /*
- * Come in albertopecchini.it: una griglia a tre colonne (1fr auto 1fr) con
- * il nome del sito sempre esattamente al centro. Sul telefono: tasto del
- * menu · nome · cerca. Da 1100 px le voci stanno ai lati del nome: tre a
- * sinistra, due e «cerca» a destra. La barra resta in cima allo scorrimento,
- * su carta velata.
+ * La barra flottante di reflection.ai: fissa in cima, staccata dai bordi di
+ * 12 px, arrotondata, su avorio con un filo di bordo. Marchio a sinistra,
+ * voci e «Cerca» a destra da 1150 px; sotto, il tasto del menu apre un
+ * pannello a tutto schermo con le voci in righe. Scendendo la barra si
+ * nasconde, risalendo torna (src/nav/client.ts).
  */
 .site-header {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  inset: 0 0 auto;
   z-index: var(--z-sticky);
-  background: rgb(243 241 236 / 0.92);
-  border-bottom: var(--border-width-thin) solid var(--color-border);
-  backdrop-filter: blur(14px) saturate(1.2);
-  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  padding: 12px 12px 0;
+  pointer-events: none;
+  transition: transform var(--duration-medium) var(--ease-enter);
+}
+
+.site-header.is-hidden {
+  transform: translateY(-110%);
 }
 
 .site-header__inner {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  pointer-events: auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
   align-items: center;
-  gap: var(--space-3);
+  justify-content: space-between;
+  gap: var(--space-4);
+  max-width: var(--container-max);
   height: var(--header-h);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+  background: var(--color-bg);
+  border: var(--border-width-thin) solid var(--color-border-subtle);
+  border-radius: var(--radius-2xl);
 }
 
+/* Il marchio: due anelli (il paese e il fiume) e il nome. */
 .site-header__brand {
-  grid-column: 2;
-  grid-row: 1;
-  display: inline-flex;
-  align-items: center;
-  min-height: var(--touch-target);
-  font-size: var(--text-md);
-}
-
-/* Tasto del menu: reso nascosto, lo accende src/nav/client.ts. */
-.site-menu {
-  grid-column: 1;
-  grid-row: 1;
-  justify-self: start;
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
   min-height: var(--touch-target);
-  min-width: var(--touch-target);
-  margin-left: calc(-1 * var(--space-2));
-  padding-inline: var(--space-2);
-  font-family: var(--font-mono);
-  font-size: var(--text-label);
+  font-size: var(--text-md);
+  color: var(--color-accent);
+}
+
+.site-header__brand .mark {
+  width: 1.75rem;
+  height: 1.125rem;
+}
+
+.site-header__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+/* Tasto del menu: reso nascosto, lo accende src/nav/client.ts. */
+.site-menu {
+  display: inline-grid;
+  place-items: center;
+  width: var(--touch-target);
+  height: var(--touch-target);
+  margin-right: calc(-1 * var(--space-3));
   color: var(--color-text);
   background: transparent;
   border: 0;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-full);
   cursor: pointer;
 }
 
@@ -63,124 +80,114 @@
   display: none;
 }
 
-/* «cerca»: il tasto a destra, con la scorciatoia solo dove c'è una tastiera. */
-.site-header__search {
-  grid-column: 3;
-  grid-row: 1;
-  justify-self: end;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  min-height: var(--touch-target);
-  min-width: var(--touch-target);
-  margin-right: calc(-1 * var(--space-2));
-  padding-inline: var(--space-2);
-  font-family: var(--font-mono);
-  font-size: var(--text-label);
-  color: var(--color-text);
-  text-decoration: none;
-  border-radius: var(--radius-sm);
-  transition: color var(--duration-fast) var(--ease-standard);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .site-header__search:hover {
-    color: var(--color-accent);
-  }
-}
-
-.site-header__search .kbd {
-  display: none;
-}
-
-/* Le voci: mono, grafite, l'attuale in inchiostro con il filo di minio sotto. */
+/* Le voci: testo piccolo, al passaggio compare il puntino a sinistra. */
 .site-nav__list {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-1) var(--space-2);
+  gap: var(--space-10);
 }
 
 .site-nav__link {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
   min-height: var(--touch-target);
-  padding-inline: var(--space-2);
-  font-family: var(--font-mono);
-  font-size: var(--text-label);
-  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  line-height: 1;
+  color: var(--color-text);
   text-decoration: none;
-  background: linear-gradient(var(--color-accent-fill), var(--color-accent-fill)) no-repeat 50% calc(100% - 0.7rem) / 0 1px;
-  transition:
-    color var(--duration-fast) var(--ease-standard),
-    background-size var(--duration-normal) var(--ease-enter);
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.site-nav__link::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  width: 0.375rem;
+  height: 0.375rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  background: currentColor;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity var(--duration-micro) var(--ease-enter);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .site-nav__link:hover {
-    color: var(--color-text);
+    color: var(--color-text-secondary);
+  }
+
+  .site-nav__link:hover::before {
+    opacity: 1;
   }
 }
 
-.site-nav__link[aria-current='page'] {
-  color: var(--color-text);
-  background-size: calc(100% - 2 * var(--space-2)) 1px;
+.site-nav__link[aria-current='page']::before {
+  opacity: 1;
+  background: var(--color-accent);
 }
 
-/* Il numero d'ordine e il piede del menu servono solo nel menu a tutto schermo. */
 .site-nav__index,
 .site-nav__foot {
   display: none;
 }
 
+/* «Cerca» nella barra: la pillola con il puntino. */
+.site-header__search {
+  flex: none;
+}
+
 /*
- * Sotto i 1100 px la navigazione è il menu a tutto schermo di AP: pannello
- * d'inchiostro sotto la barra, voci grandi numerate, in fondo coordinate e
- * motto. Chiuso di default (data-menu, src/nav/client.ts); senza JavaScript
- * non c'è `data-menu` e le voci stanno in vista sotto il nome, a capo.
+ * Sotto i 1150 px: menu a tutto schermo sotto la barra, voci in righe
+ * separate da un filo, come il menu mobile di reflection.ai. Chiuso di
+ * default (data-menu); senza JavaScript non c'è `data-menu` e le voci stanno
+ * in vista sotto la barra, a capo.
  */
-@media (max-width: 1099px) {
+@media (max-width: 1149px) {
   .site-nav {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-1) var(--space-4);
-    padding-bottom: var(--space-3);
+    pointer-events: auto;
   }
 
-  /* senza JavaScript la barra cresce di una riga */
-  .site-header:not([data-menu]) .site-header__inner {
-    height: auto;
-    grid-template-rows: var(--header-h) auto;
+  .site-header:not([data-menu]) .site-nav {
+    position: absolute;
+    inset: calc(var(--header-h) + 12px + var(--space-2)) 12px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-6);
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding: var(--space-2) var(--space-5);
+    background: var(--color-bg);
+    border: var(--border-width-thin) solid var(--color-border-subtle);
+    border-radius: var(--radius-2xl);
+  }
+
+  .site-header:not([data-menu]) .site-nav__list {
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-6);
+  }
+
+  .site-header:not([data-menu]) .site-nav__item--search {
+    display: none;
   }
 
   .site-header[data-menu='closed'] .site-nav {
     display: none;
   }
 
-  /* la sfocatura della barra farebbe da contenitore al pannello fisso: con il menu aperto se ne fa a meno */
-  .site-header[data-menu='open'] {
-    background: var(--color-bg);
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-
   .site-header[data-menu='open'] .site-nav {
     position: fixed;
-    inset: var(--header-h) 0 0;
-    z-index: var(--z-overlay);
+    inset: 0;
+    z-index: 0;
     display: flex;
     flex-direction: column;
-    gap: 0;
-    padding: clamp(1.5rem, 5vh, 3.5rem) var(--page-padding) var(--space-6);
+    padding: calc(var(--header-offset) + var(--space-6)) var(--page-padding) var(--space-8);
     overflow-y: auto;
     overscroll-behavior: contain;
-    background: var(--color-surface-inverse);
-    color: var(--color-text-inverse);
-    animation: menu-in var(--duration-slow) var(--ease-exit);
+    background: var(--color-bg);
+    animation: menu-in var(--duration-normal) var(--ease-enter);
   }
 
   .site-header[data-menu='open'] .site-nav__list {
@@ -188,10 +195,10 @@
   }
 
   .site-header[data-menu='open'] .site-nav__item {
-    border-bottom: var(--border-width-thin) solid var(--color-border-inverse);
+    border-top: var(--border-width-thin) solid var(--color-border-subtle);
     opacity: 0;
-    transform: translateY(1.5rem);
-    animation: menu-item-in var(--duration-slow) var(--ease-enter) calc(0.14s + var(--i, 0) * 38ms) both;
+    transform: translateY(0.75rem);
+    animation: menu-item-in var(--duration-slow) var(--ease-enter) calc(0.08s + var(--i, 0) * 40ms) both;
   }
 
   .site-header[data-menu='open'] .site-nav__list--l {
@@ -210,34 +217,30 @@
     display: flex;
     align-items: baseline;
     gap: var(--space-4);
-    padding: var(--space-3) 0;
-    font-family: var(--font-sans);
-    font-size: clamp(2.25rem, 10.5vw, 4.5rem);
-    font-weight: var(--font-medium);
-    font-stretch: 88%;
-    letter-spacing: -0.04em;
-    line-height: 1;
-    color: var(--color-text-inverse);
-    background: none;
+    width: 100%;
+    padding: var(--space-5) 0;
+    font-size: var(--text-heading-xs);
+    letter-spacing: var(--tracking-heading);
+    line-height: 1.1;
+  }
+
+  .site-header[data-menu='open'] .site-nav__link::before {
+    display: none;
   }
 
   .site-header[data-menu='open'] .site-nav__index {
     display: inline-block;
     min-width: 1.75rem;
-    font-family: var(--font-mono);
-    font-size: var(--text-label);
-    font-weight: var(--font-regular);
-    letter-spacing: 0;
-    color: var(--color-accent-on-dark);
+    font-size: var(--text-details);
+    font-weight: var(--font-medium);
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-secondary);
   }
 
-  /* la pagina in cui si è: corsivo graziato, come nel menu di AP */
   .site-header[data-menu='open'] .site-nav__link[aria-current='page'] {
     font-family: var(--font-serif);
     font-style: italic;
-    font-weight: 400;
-    font-stretch: 100%;
-    letter-spacing: -0.02em;
+    font-weight: var(--font-light);
   }
 
   .site-header[data-menu='open'] .site-nav__foot {
@@ -247,34 +250,17 @@
     justify-content: space-between;
     gap: var(--space-2) var(--space-4);
     margin-top: auto;
-    padding-top: var(--space-4);
-    border-top: var(--border-width-thin) solid var(--color-border-inverse);
-    font-family: var(--font-mono);
+    padding-top: var(--space-6);
+    border-top: var(--border-width-thin) solid var(--color-border-subtle);
     font-size: var(--text-xs);
     font-variant-numeric: tabular-nums;
-    color: var(--color-text-inverse-secondary);
-  }
-}
-
-/* Sotto i 480 px «cerca» e «menu» sono solo icone; il nome resta. */
-@media (max-width: 479px) {
-  .site-header__search > span,
-  .site-menu__label {
-    display: none;
-  }
-
-  .site-header__brand {
-    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
   }
 }
 
 @keyframes menu-in {
   from {
-    clip-path: inset(0 0 100% 0);
-  }
-
-  to {
-    clip-path: inset(0 0 0 0);
+    opacity: 0;
   }
 }
 
@@ -285,75 +271,63 @@
   }
 }
 
-/* Sotto i 1100 px «cerca» sta nella barra, non fra le voci. */
-@media (max-width: 1099px) {
-  .site-nav__item--search {
-    display: none;
+@media (min-width: 768px) {
+  .site-header__inner {
+    padding-inline: var(--space-8);
   }
 }
 
-/* Da 1100 px: voci ai lati del nome, menu e tasto della barra spariti; «cerca» sta fra le voci. */
-@media (min-width: 1100px) {
-  .site-menu,
-  .site-header__inner > .site-header__search {
+/* Da 1150 px: le voci nella barra, menu sparito. */
+@media (min-width: 1150px) {
+  .site-menu {
     display: none;
   }
 
-  .site-header__inner {
-    column-gap: clamp(0.75rem, 2vw, 2rem);
-  }
-
-  /* la nav si scioglie nella griglia: i suoi elenchi diventano le due ali */
   .site-nav {
     display: contents;
   }
 
-  .site-nav__list--l {
-    grid-column: 1;
-    grid-row: 1;
-    justify-self: end;
-  }
-
   .site-nav__list--r {
-    grid-column: 3;
-    grid-row: 1;
-    justify-self: start;
-  }
-
-  .site-header__search {
-    grid-column: auto;
-    grid-row: auto;
-    justify-self: auto;
-    margin-right: 0;
     margin-left: var(--space-2);
-    padding-inline: var(--space-3);
-    border: var(--border-width-thin) solid var(--color-border-strong);
-    transition:
-      color var(--duration-fast) var(--ease-standard),
-      border-color var(--duration-fast) var(--ease-standard);
   }
 
-  .site-header__search:hover {
-    border-color: var(--color-accent);
-  }
-}
-
-@media (min-width: 1100px) and (hover: hover) and (pointer: fine) {
-  .site-header__search .kbd {
-    display: inline-flex;
+  .site-nav__list--r .site-nav__item--search {
+    margin-left: calc(-1 * var(--space-4));
   }
 }
 
 /* ── Contenuto ──────────────────────────────────────────────────────────── */
-main.container {
-  padding-block: clamp(2rem, 4vw, 4rem) clamp(3rem, 6vw, 6rem);
+/*
+ * La pagina (testata, contenuto, piè di pagina) sta in un contenitore avorio
+ * sopra il pannello verde fisso in fondo (footer-reveal), e finisce prima
+ * della fine della finestra con gli angoli arrotondati: scorrendo, lo scopre.
+ */
+.page {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  min-height: 100svh;
+  margin-bottom: var(--footer-reveal-h);
+  background: var(--color-bg);
+  border-radius: 0 0 var(--radius-card) var(--radius-card);
 }
 
-/* Breadcrumb → titolo 8 px, titolo → descrizione 16 px, testata → contenuto 24 px (SPACING.md). */
+main {
+  flex: 1 0 auto;
+}
+
+main.container {
+  padding-block: calc(var(--header-offset) + clamp(2rem, 4vw, 4rem)) clamp(3rem, 6vw, 6rem);
+}
+
+/* Testata di pagina: breadcrumb, titolo in graziato, descrizione. */
 .page-header {
   display: grid;
-  gap: var(--space-4);
-  margin-bottom: var(--space-8);
+  gap: var(--space-5);
+  max-width: var(--content-narrow);
+  margin-bottom: var(--space-10);
 }
 
 .page-header .crumbs {
@@ -367,141 +341,485 @@ main.container {
   color: var(--color-text-secondary);
 }
 
-/* ── Apertura della Home ────────────────────────────────────────────────── */
+/* ── Apertura della Home (la hero di reflection.ai) ─────────────────────── */
 /*
- * Niente riquadro, niente griglia: sulla carta, come la copertina di AP, il
- * nome del paese molto grande con «sul» in corsivo graziato, il motto, la
- * ricerca, due righe di presentazione e in fondo la riga dei numeri in mono.
+ * A tutta larghezza e alta quasi uno schermo; dietro, il campo di puntini
+ * (src/home/hero-canvas.ts). Al centro il titolo in graziato leggero, una
+ * riga di testo, due pillole. Un alone d'avorio dietro al testo lo stacca
+ * dai puntini.
  */
 .hero {
+  position: relative;
+  container-type: inline-size;
   display: grid;
-  gap: var(--space-5);
-  padding-block: clamp(1rem, 3vw, 2.5rem) 0;
-  margin-bottom: var(--space-8);
+  place-items: center;
+  width: 100vw;
+  min-height: min(100svh, 60rem);
+  margin: calc(-1 * (var(--header-offset) + clamp(2rem, 4vw, 4rem))) calc(50% - 50vw) var(--space-6);
+  padding: calc(var(--header-offset) + var(--space-10)) var(--page-padding) var(--space-16);
+  overflow: hidden;
+  text-align: center;
+}
+
+.hero__canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero__canvas canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(100%, 40rem);
+}
+
+.hero__inner::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -70px calc(50% - min(480px, 50cqw)) -65px;
+  pointer-events: none;
+  background: radial-gradient(var(--color-bg) 20%, color-mix(in srgb, var(--color-bg) 93%, transparent) 42%, transparent 72%);
 }
 
 .hero__title {
-  max-width: 12ch;
+  max-width: 800px;
+  font-size: clamp(2.125rem, 4cqw, 4.5rem);
+  color: var(--color-text);
 }
 
 .hero__lead {
-  max-width: 42ch;
-}
-
-.hero .search {
-  margin-top: var(--space-2);
-  max-width: 40rem;
-}
-
-/* La riga dei numeri: etichetta e valore in mono, separati da un filo. */
-.hero__data {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2) var(--space-6);
-  margin-top: var(--space-4);
-  padding-top: var(--space-4);
-  border-top: var(--border-width-thin) solid var(--color-border);
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  font-variant-numeric: tabular-nums;
-}
-
-.hero__data div {
-  display: flex;
-  align-items: baseline;
-  gap: var(--space-2);
-}
-
-.hero__data dt {
-  color: var(--color-text-secondary);
-}
-
-.hero__data dd {
-  font-weight: var(--font-medium);
+  max-width: 680px;
+  margin-top: 1.625rem;
+  font-size: clamp(0.875rem, 1.12cqw, 1.125rem);
+  line-height: 1.5;
   color: var(--color-text);
 }
 
-@media (min-width: 1024px) {
-  .hero {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-/* ── Sezioni (STYLE.md «HOME»: sequenze diverse, mai card tutte uguali) ─── */
-.section {
-  padding-block: var(--section-padding);
-  border-top: var(--border-width-thin) solid var(--color-border);
-}
-
-/* Testata di sezione: codice, titolo, metadata e collegamento sulla stessa riga. */
-.section__head {
+.hero__actions {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
-  gap: var(--space-2) var(--space-4);
-  padding-bottom: var(--space-3);
-  margin-bottom: var(--space-6);
-  border-bottom: var(--border-width-thin) solid var(--color-border-subtle);
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
 }
 
-.section__code {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  font-variant-numeric: tabular-nums;
+/* La ricerca sta sotto, nella stessa colonna, come una pillola. */
+.hero .search {
+  width: min(100%, 34rem);
+  margin-top: var(--space-10);
+  text-align: left;
+}
+
+/* ── La frase (statement) ───────────────────────────────────────────────── */
+/*
+ * Il testo si accende parola per parola scorrendo: ogni parola ha un indice
+ * `--i` e il contenitore `--lit`, aggiornato da src/home/statement.ts; da
+ * ferma, l'opacità è 0,32. Senza JavaScript `--lit` resta alto e tutto si
+ * legge.
+ */
+.statement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-20) 0 clamp(8rem, 6rem + 8vw, 15rem);
+  text-align: center;
+}
+
+.statement__mark {
+  width: 2.75rem;
+  height: 1.75rem;
+  margin-bottom: var(--space-10);
   color: var(--color-accent);
 }
 
+.statement__title {
+  max-width: 36rem;
+}
+
+.statement__text {
+  max-width: 44rem;
+  margin-top: var(--space-6);
+}
+
+.statement [data-scroll-reveal] {
+  --lit: 999;
+}
+
+.statement [data-scroll-reveal] span {
+  opacity: clamp(0.32, calc(0.32 + (var(--lit) - var(--i)) / 3), 1);
+}
+
+.statement__action {
+  margin-top: var(--space-10);
+}
+
+/* ── I moduli della Home ────────────────────────────────────────────────── */
+/* Una sezione: etichetta a riquadro, titolo, testo; sotto, il contenuto. */
+.section {
+  padding-block: var(--section-padding);
+}
+
+.section + .section {
+  padding-top: 0;
+}
+
+.section__head {
+  display: grid;
+  gap: var(--space-5);
+  justify-items: start;
+  margin-bottom: clamp(2.5rem, 2rem + 2vw, 3.5rem);
+}
+
+.section__head h2 {
+  max-width: 32rem;
+}
+
+.section__code,
 .section__meta {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  font-variant-numeric: tabular-nums;
-  color: var(--color-text-secondary);
+  display: none;
 }
 
 .section__intro {
-  flex: 1 1 100%;
-  order: 3;
-  font-size: var(--text-sm);
+  max-width: 30rem;
+  font-size: var(--text-lg);
+  line-height: 1.4;
 }
 
-/* Il collegamento «vedi tutto»: il link con la freccia di AP, sottolineato dal filo che scorre via al passaggio. */
 .section__more {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  margin-left: auto;
-  font-family: var(--font-mono);
-  font-size: var(--text-label);
-  font-weight: var(--font-medium);
-  color: var(--color-text);
-  text-decoration: none;
-  background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat;
-  padding-bottom: 0.15rem;
-  transition:
-    background-size var(--duration-normal) var(--ease-enter),
-    color var(--duration-fast) var(--ease-standard);
+  margin-top: var(--space-2);
 }
 
-.section__more .icon {
-  transition: transform var(--duration-normal) var(--ease-enter);
+/* Le sezioni del sito: elenco di schede con icona, titolo in graziato, riga. */
+.offer {
+  display: grid;
+  gap: var(--space-8) var(--space-6);
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
+.offer__item {
+  display: flex;
+  gap: var(--space-5);
+  padding-bottom: var(--space-6);
+  border-bottom: var(--border-width-thin) solid var(--color-border-subtle);
+  color: inherit;
+  text-decoration: none;
+}
+
+.offer__icon {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+  color: var(--color-accent);
+  font-size: 1.25rem;
+  transition:
+    background-color var(--duration-micro) var(--ease-enter),
+    color var(--duration-micro) var(--ease-enter);
+}
+
+.offer__body {
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+}
+
+.offer__body h3 {
+  transition: color var(--duration-normal) var(--ease-standard);
+}
+
+.offer__body p {
+  max-width: 28rem;
+  color: rgb(26 27 26 / 0.8);
+}
+
+.offer__count {
+  font-size: var(--text-details);
+  font-weight: var(--font-medium);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .section__more:hover {
-    color: var(--color-text);
-    background-size: 0 1px;
-    background-position: 100% 100%;
+  .offer__item:hover .offer__icon {
+    background: var(--color-accent-fill);
+    color: var(--color-on-accent);
   }
 
-  .section__more:hover .icon {
-    transform: translateX(0.3rem);
+  .offer__item:hover h3 {
+    color: var(--color-accent);
+  }
+}
+
+/* Un modulo in evidenza (meteo): testo a sinistra, contenuto a destra. */
+.feature {
+  display: grid;
+  gap: var(--space-10);
+  align-items: start;
+}
+
+.feature__copy {
+  display: grid;
+  gap: var(--space-5);
+  justify-items: start;
+  max-width: 30rem;
+}
+
+.feature__copy p {
+  color: var(--color-text-secondary);
+  font-size: var(--text-lg);
+  line-height: 1.4;
+}
+
+.feature__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+@media (min-width: 1024px) {
+  .feature {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    gap: var(--space-16);
+  }
+
+  .feature__copy {
+    position: sticky;
+    top: calc(var(--header-offset) + var(--space-8));
+  }
+}
+
+/* Il nastro delle fonti (il carosello dei loghi di reflection.ai): scorre
+   da solo, si ferma al passaggio; con «riduci movimento» scorre a mano. */
+.marquee {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: var(--space-4);
+  padding-block: var(--space-16);
+  border-top: var(--border-width-thin) solid var(--color-border-subtle);
+  border-bottom: var(--border-width-thin) solid var(--color-border-subtle);
+}
+
+.marquee__title {
+  font-family: var(--font-sans);
+  font-size: var(--text-title-sans);
+  font-weight: var(--font-medium);
+  letter-spacing: var(--tracking-normal);
+  color: rgb(26 27 26 / 0.7);
+}
+
+.marquee__viewport {
+  --fade: min(4rem, 10%);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--fade), #000 calc(100% - var(--fade)), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 var(--fade), #000 calc(100% - var(--fade)), transparent);
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  gap: var(--space-16);
+  animation: marquee var(--marquee-duration, 40s) linear infinite;
+}
+
+.marquee__track ul {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+  flex: none;
+}
+
+.marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-serif);
+  font-size: var(--text-title-serif);
+  font-weight: var(--font-regular);
+  letter-spacing: var(--tracking-heading);
+  white-space: nowrap;
+  color: var(--color-text-secondary);
+}
+
+.marquee__item .badge-official {
+  gap: 0;
+}
+
+.marquee__item .badge-official__text {
+  display: none;
+}
+
+@media (hover: hover) {
+  .marquee__viewport:hover .marquee__track {
+    animation-play-state: paused;
+  }
+}
+
+.marquee__viewport:focus-within .marquee__track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(calc(-50% - var(--space-8)));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__viewport {
+    overflow-x: auto;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .marquee__track {
+    animation: none;
+  }
+
+  .marquee__track ul + ul {
+    display: none;
   }
 }
 
 @media (min-width: 768px) {
-  .section__intro {
-    flex: 1 1 auto;
-    order: 0;
+  .marquee {
+    grid-template-columns: minmax(0, clamp(5rem, 20vw, 12rem)) minmax(0, 1fr);
+    gap: var(--space-8);
+  }
+}
+
+/* Il giornale: titolo che resta a sinistra, articoli a destra. */
+.split {
+  display: grid;
+  gap: var(--space-10);
+  align-items: start;
+}
+
+.split__copy {
+  display: grid;
+  gap: var(--space-5);
+  justify-items: start;
+}
+
+.split__copy p {
+  max-width: 28rem;
+  font-size: var(--text-lg);
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+}
+
+@media (min-width: 1024px) {
+  .split {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--space-16);
+  }
+
+  .split__copy {
+    position: sticky;
+    top: calc(var(--header-offset) + var(--space-8));
+  }
+}
+
+/* La mappa: una scheda grande con gli angoli ampi. */
+.map-card {
+  overflow: hidden;
+  border: var(--border-width-thin) solid var(--color-border-subtle);
+  border-radius: var(--radius-2xl);
+  background: var(--color-surface-raised);
+}
+
+.map-card .map-block {
+  border: 0;
+  border-radius: 0;
+}
+
+.map-card .home-map__data {
+  padding: var(--space-6);
+}
+
+@media (min-width: 1024px) {
+  .map-card {
+    gap: 0;
+    border-radius: var(--radius-card);
+  }
+
+  .map-card .home-map__data {
+    padding: var(--space-8);
+    border-left: var(--border-width-thin) solid var(--color-border-subtle);
+  }
+}
+
+/* La chiusura: la scheda verde di reflection.ai con i numeri dell'atlante. */
+.outro {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  gap: var(--space-10);
+  padding: var(--space-12) var(--space-6);
+  border-radius: var(--radius-2xl);
+}
+
+.outro__copy {
+  display: grid;
+  gap: var(--space-6);
+  justify-items: start;
+  max-width: 32rem;
+}
+
+.outro__copy p {
+  max-width: 28rem;
+  line-height: 1.4;
+}
+
+.outro__data {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-8) var(--space-6);
+  align-content: start;
+}
+
+.outro__datum {
+  display: grid;
+  gap: var(--space-2);
+  padding-top: var(--space-4);
+  border-top: var(--border-width-thin) solid var(--color-border);
+}
+
+.outro__datum .stat {
+  color: var(--color-text);
+}
+
+.outro__meta {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.outro__action {
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 1024px) {
+  .outro {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-16);
+    padding: var(--space-20) clamp(2.5rem, 6vw, 6.25rem);
+    border-radius: var(--radius-card);
   }
 }
 
@@ -513,7 +831,7 @@ main.container {
   margin-bottom: var(--space-4);
 }
 
-/* Griglia schede (RESPONSIVE.md «Matrice card»): 1 → 2 → 3 colonne; gutter 16 → 24 → 32 (SPACING.md «Gutter»). */
+/* Griglia schede (RESPONSIVE.md «Matrice card»): 1 → 2 → 3 colonne. */
 .grid {
   display: grid;
   gap: var(--space-4);
@@ -536,122 +854,145 @@ main.container {
 
 /* ── Piè di pagina ──────────────────────────────────────────────────────── */
 /*
- * La chiusura di AP: pannello d'inchiostro, tutto centrato, dall'alto in
- * basso: il nome del paese grande e il motto · la fila delle pagine · le
- * fonti principali · la nota · la riga di stato in mono con la firma ·
- * «torna su». Un gradino più profondo dell'inchiostro delle sezioni.
+ * Come su reflection.ai: la pagina (avorio, angoli arrotondati in basso)
+ * finisce prima della fine della finestra e, scorrendo, scopre sotto di sé
+ * un pannello fisso verde con il nome del paese grandissimo.
  */
 .site-footer {
-  --color-surface-inverse: #0d0d0c;
-  --color-border-inverse: #2a2a27;
-  margin-top: auto;
-  padding-block: clamp(4rem, 3rem + 6vw, 9rem) clamp(2.5rem, 2rem + 2vw, 4.5rem);
-  text-align: center;
+  padding: var(--space-16) 0 var(--space-12);
 }
 
 .site-footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.site-footer__about {
   display: grid;
-  justify-items: center;
-  gap: clamp(2.5rem, 1.5rem + 3.5vw, 4.5rem);
+  gap: var(--space-5);
+  justify-items: start;
+  max-width: 28rem;
 }
 
-.site-footer__sign {
-  display: grid;
-  justify-items: center;
-  gap: var(--space-3);
+.site-footer__about .site-header__brand {
+  min-height: 0;
 }
 
-.site-footer__name {
-  font-size: clamp(2.25rem, 1rem + 4.4vw, 5.25rem);
-  font-weight: var(--font-medium);
-  font-stretch: var(--stretch-display);
-  letter-spacing: -0.04em;
-  line-height: 0.95;
-  color: var(--color-text);
-  text-decoration: none;
-}
-
-.site-footer__tag {
-  max-width: 42ch;
-  font-size: var(--text-sm);
+.site-footer__about p {
   color: var(--color-text-secondary);
 }
 
-/* La fila delle pagine e quella delle fonti: link in mono, sottolineatura che scorre. */
-.site-footer__nav ul,
-.site-footer__sources ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-2) var(--space-5);
+.site-footer__nav {
+  display: grid;
+  gap: var(--space-8);
 }
 
-.site-footer__nav a,
-.site-footer__sources a {
-  display: inline-flex;
-  align-items: center;
-  min-height: var(--touch-target);
-  font-family: var(--font-mono);
-  font-size: var(--text-label);
+.site-footer__col {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+}
+
+.site-footer__col > span {
+  font-size: var(--text-lg);
+  font-weight: var(--font-medium);
   color: var(--color-text);
 }
 
-.site-footer__nav a[aria-current='page'] {
-  color: var(--color-accent);
+.site-footer__col ul {
+  display: grid;
+  gap: var(--space-2);
 }
 
-.site-footer__sources {
-  display: grid;
-  justify-items: center;
-  gap: var(--space-2);
+.site-footer__col a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--space-6);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+}
+
+.site-footer__plain {
+  display: inline-block;
+  line-height: var(--space-6);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  font-variant-numeric: tabular-nums;
 }
 
 .site-footer__note {
-  max-width: 60ch;
+  max-width: 44rem;
   font-size: var(--text-xs);
-  line-height: 1.6;
+  line-height: 1.5;
   color: var(--color-text-secondary);
-  text-wrap: balance;
 }
 
-/* La riga di stato: attribuzione, data dei dati, build e la firma. */
-.site-footer__meta {
+@media (min-width: 1024px) {
+  .site-footer__inner {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--space-16);
+  }
+
+  .site-footer__about {
+    flex: 0 0 34.7%;
+  }
+
+  .site-footer__nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-8);
+  }
+
+  .site-footer__col > span {
+    font-size: var(--text-sm);
+  }
+}
+
+/* Il pannello che si scopre: fisso in fondo, dietro la pagina. */
+.footer-reveal {
+  position: fixed;
+  inset: auto 0 0;
+  z-index: 0;
+  display: grid;
+  align-content: end;
+  height: var(--footer-reveal-h);
+  padding: var(--space-8) var(--page-padding) var(--space-6);
+  overflow: hidden;
+  background: var(--color-surface-inverse);
+  color: var(--color-text-inverse);
+}
+
+.footer-reveal__name {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 9.5vw, 11rem);
+  font-weight: var(--font-light);
+  line-height: 0.9;
+  letter-spacing: var(--tracking-display);
+  white-space: nowrap;
+  color: var(--color-text-inverse);
+}
+
+.footer-reveal__line {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: baseline;
-  gap: var(--space-2) var(--space-5);
-  width: 100%;
-  padding-top: clamp(2rem, 1.5rem + 2vw, 3.5rem);
-  border-top: var(--border-width-thin) solid var(--color-border);
-  font-family: var(--font-mono);
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-4);
+  margin-top: var(--space-6);
   font-size: var(--text-xs);
-  font-variant-numeric: tabular-nums;
-  color: var(--color-text-secondary);
+  font-weight: var(--font-medium);
+  color: var(--color-text-inverse-secondary);
 }
 
-.site-footer__meta a {
-  color: var(--color-text);
-}
-
-.site-footer__top {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  min-height: var(--touch-target);
-  font-family: var(--font-mono);
-  font-size: var(--text-label);
-  color: var(--color-text);
+.footer-reveal__line a {
+  color: var(--color-text-inverse);
 }
 
 /*
  * ── Touch (RESPONSIVE.md «Pointer precision», «Touch target») ─────────────
- * Il collegamento di sezione allarga l'area toccabile senza spostare il
- * layout. Con il mouse resta compatto.
  */
 @media (hover: none) and (pointer: coarse) {
-  .section__more {
+  .site-footer__col a {
     min-height: var(--touch-target);
-    margin-block: calc(-1 * var(--space-3));
   }
 }

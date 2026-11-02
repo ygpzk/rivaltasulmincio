@@ -6,12 +6,25 @@
  */
 import { mountCount } from './animations/count';
 import { mountReveal } from './animations/reveal';
-import { mountMenu } from './nav/client';
+import { mountHeaderHide, mountMenu } from './nav/client';
 import { mountNoticeBar } from './notices/client';
 import { mountSearch, mountShortcut } from './search/client';
 
 for (const button of document.querySelectorAll<HTMLElement>('[data-menu-toggle]')) {
   mountMenu(button);
+}
+for (const header of document.querySelectorAll<HTMLElement>('[data-header]')) {
+  mountHeaderHide(header);
+}
+
+// La Home (src/home/): il campo di puntini dell'apertura, la frase che si accende, il nastro delle fonti.
+const heroCanvas = document.querySelector<HTMLElement>('[data-hero-canvas]');
+if (heroCanvas) void import('./home/hero-canvas').then(({ mountHeroCanvas }) => mountHeroCanvas(heroCanvas));
+for (const block of document.querySelectorAll<HTMLElement>('[data-scroll-reveal]')) {
+  void import('./home/statement').then(({ mountStatement }) => mountStatement(block));
+}
+for (const root of document.querySelectorAll<HTMLElement>('[data-marquee]')) {
+  void import('./home/marquee').then(({ mountMarquee }) => mountMarquee(root));
 }
 
 for (const form of document.querySelectorAll<HTMLElement>('[data-search]')) {

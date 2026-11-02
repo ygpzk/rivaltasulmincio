@@ -1,12 +1,16 @@
 import type { PageResult, RenderedDocument } from '../app/page';
 import { site } from '../app/site';
-import { footer } from '../components/footer';
+import { footer, footerReveal } from '../components/footer';
 import { header } from '../components/header';
 import { noticeBar } from '../components/notice';
 import { activeNotices } from '../data/notices';
 import { escape, html } from '../lib/html';
 
-/** Layout base: testa del documento, skip link, testata, <main>, piè di pagina. */
+/**
+ * Layout base: testa del documento, skip link, poi la pagina (testata, <main>,
+ * piè di pagina) in un contenitore che sta sopra il pannello verde fisso in
+ * fondo e lo scopre scorrendo (layout.css «Piè di pagina»).
+ */
 export function renderDocument(path: string, page: PageResult): RenderedDocument {
   const title = path === '/' ? site.fullName : `${page.title} — ${site.name}`;
   const description = page.description ?? site.description;
@@ -32,9 +36,12 @@ export function renderDocument(path: string, page: PageResult): RenderedDocument
   const body = html`
     <a class="skip-link" href="#contenuto">Vai al contenuto</a>
     ${notice ? noticeBar(notice) : ''}
-    ${header(path)}
-    <main id="contenuto" class="container" tabindex="-1">${page.main}</main>
-    ${footer(path)}
+    <div class="page">
+      ${header(path)}
+      <main id="contenuto" class="container" tabindex="-1">${page.main}</main>
+      ${footer(path)}
+    </div>
+    ${footerReveal()}
   `;
 
   return { status: page.status ?? 200, head, html: body.value };

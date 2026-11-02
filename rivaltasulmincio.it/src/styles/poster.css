@@ -136,7 +136,7 @@
   padding: var(--space-4);
   background: var(--color-surface-muted);
   border: var(--border-width-thin) solid var(--color-border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-lg);
 }
 
 /* Su schermo stretto il pulsante prende tutta la riga: è il bersaglio più grande. */

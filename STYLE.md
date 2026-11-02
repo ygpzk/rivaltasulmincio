@@ -93,34 +93,48 @@ Non trasformare il sito in terminale finto.
 
 ## PALETTE
 
-Dal 2.11.2026 il sito veste la tavolozza di albertopecchini.it: **carta, inchiostro, minio**.
+Dal 2.11.2026 il sito è impaginato come reflection.ai, con la sua tavolozza: **avorio, inchiostro, verde profondo, lime, lilla**.
 
-Colore dominante:
+Fondo e superfici:
 
 ```text
-carta #f3f1ec (fondo), carta 2 #eae7e0 e carta 3 #dedad1 (testate, riquadri)
+avorio #f8f6f0 (fondo), avorio 2 #f1ede1 (etichette, riquadri delle icone, testate), avorio 3 #e8e3d4
 ```
 
-Testo e superfici scure:
+Testo:
 
 ```text
-inchiostro #10110f, inchiostro 2 #1b1c19, inchiostro 3 #2b2c28
-grafite #5a5b55 per il testo secondario e le etichette
+inchiostro #1a1b1a, grigio #525252 per il testo secondario, #a3a3a3 solo sul verde
 ```
 
 Colore identitario:
 
 ```text
-minio #e5481f (riempimenti, selezione, avanzamento)
-minio profondo #b5360f (come testo e link sulla carta: AA)
-minio acceso #ff6a3d (sull'inchiostro)
+verde profondo #1e3207: tasti pieni, link, icone, le schede scure e il pannello in fondo
+lime #dcef54 (al passaggio #cee04b): l'accento vivo, i tasti sul verde, le icone al passaggio
+lilla #c9bdf0: di contorno, per un'etichetta
 ```
 
-Sopra il minio si scrive in inchiostro: il bianco non arriva ad AA.
+Sul lime si scrive in inchiostro; sul verde profondo in avorio.
 
-Il verde resta soltanto per natura, vegetazione, acqua, dati ambientali e lo stato «successo».
+Il verde della natura (#4e7a4b) e dell'acqua (#3f7a78) resta per le categorie dei luoghi e i dati ambientali; lo stato «successo» usa #2f7a4a.
 
-La tavolozza precedente (marrone, rosso bruciato, crema, carbone) è superata.
+Le tavolozze precedenti (marrone e crema; carta e minio) sono superate.
+
+## IMPAGINAZIONE
+
+La struttura è quella di reflection.ai, presa pezzo per pezzo:
+
+* **barra flottante**: fissa in cima, staccata di 12 px dai bordi, arrotondata (1rem), su avorio con un filo di bordo; marchio a sinistra, voci e pillola «Cerca» a destra da 1150 px; sotto, il tasto apre un pannello a tutto schermo con le voci in righe; scendendo si nasconde, risalendo torna;
+* **apertura** a tutto schermo: titolo in graziato leggero al centro, una riga, due pillole, la ricerca; dietro, un campo di puntini ad anelli disegnato in canvas che respira e si scosta dal puntatore;
+* **la frase** che si accende parola per parola scorrendo (opacità da 0,32 a 1 per indice di parola);
+* **le sezioni** come schede con icona in riquadro, titolo in graziato e riga sotto; l'icona si accende di lime al passaggio;
+* **un modulo in evidenza** con testo che resta a sinistra e contenuto a destra (meteo);
+* **il nastro** delle fonti che scorre da solo e si ferma al passaggio;
+* **la scheda grande** con gli angoli a 2rem (mappa) e **la scheda verde** di chiusura con i numeri;
+* **il piè di pagina** che finisce con gli angoli arrotondati e scopre sotto di sé il pannello verde con il nome del paese.
+
+Pillole: etichetta arrotondata con il puntino a destra che al passaggio si allarga in un cerchio e mostra la freccia. Etichette di sezione: riquadro su avorio 2, angoli 0,375rem. Angoli: 0,375 → 0,75 → 1 → 2rem, pillole per i tasti.
 
 ## TOKEN CSS OBBLIGATORI
 
@@ -443,7 +457,7 @@ Questo linguaggio deve ricorrere in:
 
 ## GRIGLIA E TEXTURE
 
-Dal 2.11.2026 nessuna griglia e nessuna grana: la carta è piatta, come su albertopecchini.it. La struttura la danno i fili d'inchiostro velato (16 %, 42 %) e i pannelli.
+Nessuna griglia e nessuna grana: l'avorio è piatto. La struttura la danno i fili d'inchiostro velato, i riquadri e gli angoli ampi.
 
 ## OMBRE
 
@@ -509,17 +523,13 @@ Non usare monospace per intera pagina.
 
 ## FONT
 
-Gli stessi di albertopecchini.it, self-hosted dai pacchetti @fontsource:
+reflection.ai usa NaN Serf Sans e NaN Serf B, caratteri commerciali della fonderia NaN: non si copiano. I più vicini liberi, self-hosted dai pacchetti @fontsource:
 
-* **Archivo** (variabile: peso 100–900, larghezza 62–125 %) per titoli, testo e navigazione; i titoli si stringono (94 %), il nome in copertina di più (86 %), i numeri grandi ancora di più (78 %);
-* **Cascadia Code** (variabile sul peso) per etichette, tasti, coordinate, date, ID e dati;
-* **Instrument Serif** in corsivo per una sola parola d'accento in un titolo («rivalta *sul* mincio»).
+* **Newsreader** (variabile, 200–800, dimensione ottica) per i titoli, leggero (350) con tracking −0,05em come il loro graziato;
+* **Hanken Grotesk** (variabile) per il testo, le voci e i tasti, tracking −0,02em;
+* il mono di sistema per codice e tasti.
 
-Non si aggiunge un quarto carattere e non si caricano caratteri da host esterni.
-
-### La regola del minuscolo
-
-Tutto il testo visibile è in minuscolo, nomi propri compresi, con `text-transform: lowercase` sul `body`: nell'HTML il testo resta scritto normale, così titolo della pagina, motori di ricerca e lettori di schermo lo leggono come si scrive. Fanno eccezione ciò che scrive il visitatore, il codice, le locandine originali e i valori misurati del meteo («°C», «hPa», «ONO»).
+Con una licenza NaN si sostituiscono le due famiglie in `src/styles/fonts.css`. Niente altri caratteri, niente host esterni. Il testo si scrive normale (niente minuscolo forzato); le sole maiuscole sono le etichette «details» (0,6875rem, 0,08em).
 
 ## HEADLINE
 
@@ -531,7 +541,7 @@ Titoli:
 * tracking leggermente negativo;
 * forte presenza.
 
-Non usare serif classico come font dominante: il corsivo graziato è per una parola sola.
+Il graziato leggero è il carattere dei titoli grandi e dei numeri; il grottesco di tutto il resto.
 
 ## MONOSPACE
 
@@ -548,15 +558,13 @@ Questo crea linguaggio tecnico senza rendere pagina "programmatore".
 
 ## MICRO-LABEL
 
-Piccole etichette in mono, minuscole, passo naturale (niente maiuscole, niente tracking):
+Etichette «details» come su reflection.ai: grottesco 0,6875rem, peso 500, maiuscole, tracking 0,08em. Si usano per occhielli, breadcrumb, etichette dei numeri.
 
 ```text
-live
-ufficiale
-osm
-aggiornato
-fonte
-archivio
+LIVE
+UFFICIALE
+OSM
+AGGIORNATO
 ```
 
 ## GIORNALE

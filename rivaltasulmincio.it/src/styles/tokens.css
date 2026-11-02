@@ -3,76 +3,81 @@
  * solo questi nomi, mai valori diretti, e usano il significato (--color-text,
  * --color-surface) non il colore.
  *
- * Dal 2.11.2026 il sito veste lo stesso linguaggio di albertopecchini.it
- * (STYLE.md «PALETTE», «FONT»): carta, inchiostro e minio, Archivo per
- * titoli e testo, Cascadia Code per etichette e dati, Instrument Serif in
- * corsivo per una parola d'accento; tutto il testo visibile in minuscolo
- * (base.css). Il verde resta alla natura, all'acqua e allo stato «successo».
- * Contrasto: inchiostro su carta 17:1, grafite su carta 6:1, minio profondo
- * su carta 5,3:1; sul minio pieno si scrive in inchiostro (4,8:1), non in
- * bianco, che non arriva ad AA.
+ * Dal 2.11.2026 il sito è impaginato come reflection.ai (STYLE.md
+ * «IMPAGINAZIONE»): avorio caldo, inchiostro quasi nero, verde profondo come
+ * colore identitario, lime come accento vivo e un lilla di contorno; titoli in
+ * graziato leggero (Newsreader), testo in grottesco (Hanken Grotesk); pillole,
+ * angoli ampi, barra flottante. Contrasto: inchiostro su avorio 15:1, grigio
+ * #525252 su avorio 7:1, verde profondo su avorio 12:1, inchiostro sul lime
+ * 13:1, avorio sul verde profondo 12:1.
  */
 :root {
   color-scheme: light;
 
-  /* ── Tavolozza: carta, inchiostro, minio ─────────────────────────────── */
-  --paper: #f3f1ec;
-  --paper-2: #eae7e0;
-  --paper-3: #dedad1;
-  --ink: #10110f;
-  --ink-2: #1b1c19;
-  --ink-3: #2b2c28;
-  --graphite: #5a5b55;
-  --minio: #e5481f;
-  --minio-deep: #b5360f;
-  --minio-bright: #ff6a3d;
+  /* ── Tavolozza: avorio, inchiostro, verde profondo, lime, lilla ───────── */
+  --ivory: #f8f6f0;
+  --ivory-2: #f1ede1;
+  --ivory-3: #e8e3d4;
+  --ink: #1a1b1a;
+  --ink-2: #0a0a0a;
+  --gray: #525252;
+  --gray-2: #a3a3a3;
+  --green: #1e3207;
+  --green-2: #2a4410;
+  --green-3: #34461e;
+  --lime: #dcef54;
+  --lime-2: #cee04b;
+  --lilac: #c9bdf0;
+  --sand: #b19d8b;
+  --brown: #473f38;
 
   /* ── Colori: superfici ───────────────────────────────────────────────── */
-  --color-bg: var(--paper);
-  --color-surface: var(--paper);
-  --color-surface-raised: #f8f7f3; /* scheda: un passo più chiara della carta, mai bianco puro */
-  --color-surface-muted: var(--paper-2); /* testate di pannello e tabella */
-  --color-surface-inverse: var(--ink);
-  --color-surface-inverse-raised: var(--ink-2);
+  --color-bg: var(--ivory);
+  --color-surface: var(--ivory);
+  --color-surface-raised: #fdfcf9; /* scheda: un passo più chiara dell'avorio */
+  --color-surface-muted: var(--ivory-2); /* testate di pannello, etichette, riquadri delle icone */
+  --color-surface-inverse: var(--green);
+  --color-surface-inverse-raised: var(--green-2);
 
   /* ── Colori: testo ───────────────────────────────────────────────────── */
   --color-text: var(--ink);
-  --color-text-secondary: var(--graphite);
-  --color-text-muted: #6b6c66; /* 4,9:1 su carta: solo per contenuto non interattivo */
+  --color-text-secondary: var(--gray);
+  --color-text-muted: #6b6b66; /* 5,2:1 su avorio: solo per contenuto non interattivo */
   --color-text-strong: var(--ink);
-  --color-text-inverse: var(--paper);
-  --color-text-inverse-secondary: #a5a59c;
-  --color-text-inverse-muted: #92918c;
+  --color-text-inverse: var(--ivory);
+  --color-text-inverse-secondary: #cfd3c0;
+  --color-text-inverse-muted: #a9ae9a;
 
   /* ── Colori: marca ───────────────────────────────────────────────────── */
-  /* Dominante: inchiostro. Tasti pieni, superfici scure, titoli. */
-  --color-primary: var(--ink);
-  --color-primary-hover: var(--ink-2);
-  --color-primary-active: var(--ink-3);
-  --color-primary-soft: var(--paper-2);
-  /* Identitario: minio. Link, stato attivo, selezione, avanzamento. Come testo
-     si usa il minio profondo (AA su carta); il minio pieno è riempimento. */
-  --color-accent: var(--minio-deep);
-  --color-accent-hover: var(--minio);
-  --color-accent-fill: var(--minio);
-  --color-accent-soft: #f6dcd3;
-  --color-accent-on-dark: var(--minio-bright); /* stesso ruolo sulle superfici scure */
-  --color-on-accent: var(--ink); /* inchiostro sul minio: il bianco non arriva ad AA */
+  /* Dominante: verde profondo. Tasti pieni, superfici scure, icone. */
+  --color-primary: var(--green);
+  --color-primary-hover: var(--green-2);
+  --color-primary-active: var(--ink-2);
+  --color-primary-soft: var(--ivory-2);
+  /* Identitario: il verde come testo e link; il lime come riempimento vivo. */
+  --color-accent: var(--green);
+  --color-accent-hover: var(--green-2);
+  --color-accent-fill: var(--lime);
+  --color-accent-fill-hover: var(--lime-2);
+  --color-accent-soft: #eef4c9;
+  --color-accent-on-dark: var(--lime); /* stesso ruolo sulle superfici scure */
+  --color-on-accent: var(--ink); /* inchiostro sul lime */
+  --color-lilac: var(--lilac);
 
-  /* ── Colori: bordi (inchiostro velato, come in AP) ────────────────────── */
-  --color-border: rgb(16 17 15 / 0.16);
-  --color-border-subtle: rgb(16 17 15 / 0.1);
-  --color-border-strong: rgb(16 17 15 / 0.42);
-  --color-border-inverse: rgb(243 241 236 / 0.17);
-  --color-border-inverse-strong: rgb(243 241 236 / 0.45);
+  /* ── Colori: bordi (inchiostro velato, come su reflection.ai) ─────────── */
+  --color-border: rgb(26 27 26 / 0.12);
+  --color-border-subtle: rgb(26 27 26 / 0.08);
+  --color-border-strong: rgb(26 27 26 / 0.25);
+  --color-border-inverse: rgb(248 246 240 / 0.15);
+  --color-border-inverse-strong: rgb(248 246 240 / 0.35);
 
   /* ── Colori: stati ───────────────────────────────────────────────────── */
   --color-success: #2f7a4a;
   --color-success-soft: #dcebe0;
   --color-warning: #a97a1c;
   --color-warning-soft: #f3e7c8;
-  --color-danger: var(--minio-deep);
-  --color-danger-soft: var(--color-accent-soft);
+  --color-danger: #b4231f;
+  --color-danger-soft: #f8dedd;
   --color-info: #4b6c7a;
   --color-info-soft: #dfe7ea;
 
@@ -92,7 +97,7 @@
   --map-boundary: #8f938a;
   --map-label: #26312b;
 
-  /* ── Categorie dei luoghi: toni sobri sulla carta, il verde solo alla natura ── */
+  /* ── Categorie dei luoghi ────────────────────────────────────────────── */
   --category-business: #b5652f;
   --category-services: #4f6a78;
   --category-culture: #7b4f5a;
@@ -101,51 +106,53 @@
   --category-mobility: #6e6862;
   --category-history: #6b4a33;
 
-  /* ── Tipografia (fonts.css): Archivo, Cascadia Code, Instrument Serif ── */
+  /* ── Tipografia (fonts.css): Hanken Grotesk, Newsreader, mono di sistema ── */
   --font-sans:
-    'Archivo Variable', 'Archivo', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, sans-serif;
-  --font-mono:
-    'Cascadia Code Variable', 'Cascadia Code', 'Cascadia Mono', ui-monospace, 'SF Mono', Menlo,
-    Consolas, monospace;
-  --font-serif: 'Instrument Serif', 'Iowan Old Style', 'Times New Roman', serif;
+    'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: 'Newsreader Variable', 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
-  --text-xs: 0.8125rem;
-  --text-sm: 0.9375rem;
-  --text-md: 1.0625rem;
-  --text-lg: 1.1875rem;
-  --text-xl: clamp(1.3125rem, 1.1rem + 0.85vw, 1.875rem);
-  --text-2xl: clamp(1.75rem, 1.25rem + 2.1vw, 3.25rem);
-  --text-3xl: clamp(2.25rem, 1.4rem + 3.4vw, 4.75rem);
-  --text-display: clamp(2.75rem, 1.2rem + 6vw, 7rem);
-  --text-stat: clamp(2.25rem, 1.4rem + 3.4vw, 4rem); /* numeri principali */
-  --text-h4: clamp(1.125rem, 1.05rem + 0.4vw, 1.375rem);
-  --text-label: 0.875rem; /* etichette, tasti, dati in mono */
+  /* La scala di reflection.ai: corpo in quattro misure, titoli in graziato. */
+  --text-xs: 0.75rem; /* body-xs */
+  --text-sm: 0.875rem; /* body-s */
+  --text-md: 1rem; /* body-m */
+  --text-lg: 1.125rem; /* body-l */
+  --text-details: 0.6875rem; /* etichette maiuscole */
+  --text-title-sans: clamp(1.125rem, 1.05rem + 0.35vw, 1.25rem);
+  --text-title-serif: clamp(1.25rem, 1.1rem + 0.7vw, 1.5rem);
+  --text-xl: var(--text-title-serif);
+  --text-heading-xs: 2rem;
+  --text-heading-s: clamp(1.625rem, 1.2rem + 1.9vw, 2.5rem);
+  --text-2xl: var(--text-heading-s);
+  --text-headline-m: clamp(2.375rem, 2rem + 1.5vw, 3rem);
+  --text-headline-l: clamp(2.375rem, 1.8rem + 2.6vw, 3.5rem);
+  --text-3xl: var(--text-headline-l);
+  --text-display: clamp(2.625rem, 1.6rem + 4vw, 4.5rem);
+  --text-stat: clamp(2.5rem, 1.8rem + 3vw, 4rem);
+  --text-h4: var(--text-title-sans);
+  --text-label: var(--text-sm);
 
+  --font-light: 350;
   --font-regular: 400;
   --font-medium: 500;
-  --font-semibold: 560;
-  --font-strong: 600;
-  --font-bold: 640;
-
-  /* Larghezze di Archivo: i titoli si stringono, i numeri di più. */
-  --stretch-display: 86%;
-  --stretch-heading: 94%;
-  --stretch-numbers: 78%;
+  --font-semibold: 500;
+  --font-strong: 500;
+  --font-bold: 500;
 
   --leading-none: 1;
-  --leading-display: 0.94;
-  --leading-tight: 1;
-  --leading-snug: 1.12;
-  --leading-ui: 1.2;
+  --leading-display: 1.07;
+  --leading-tight: 1.1;
+  --leading-snug: 1.2;
+  --leading-ui: 1.25;
   --leading-normal: 1.5;
-  --leading-relaxed: 1.6;
+  --leading-relaxed: 1.5;
 
-  --tracking-display: -0.04em;
-  --tracking-tight: -0.035em;
-  --tracking-heading: -0.025em;
-  --tracking-normal: 0;
-  --tracking-wide: 0; /* le etichette in mono non si spaziano più: minuscole, passo naturale */
+  --tracking-display: -0.05em;
+  --tracking-tight: -0.04em;
+  --tracking-heading: -0.03em;
+  --tracking-normal: -0.02em; /* il corpo di reflection.ai è tutto a −0,02em */
+  --tracking-wide: 0.08em; /* solo le etichette maiuscole «details» */
 
   /* ── Spaziature (SPACING.md) ─────────────────────────────────────────── */
   --space-0: 0;
@@ -163,12 +170,16 @@
   --space-24: 6rem;
   --space-32: 8rem;
 
-  /* ── Radius: il linguaggio è ortogonale, i raggi minimi ──────────────── */
+  /* ── Radius: ampi, come su reflection.ai (md per etichette, 2xl per schede, pillole per i tasti) ── */
   --radius-none: 0;
-  --radius-sm: 2px;
-  --radius-md: 2px;
-  --radius-lg: 6px;
-  --radius-xl: 12px;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-card: 2rem;
+  --radius-full: 999px;
 
   /* ── Bordi (BORDERS.md) ──────────────────────────────────────────────── */
   --border-width-thin: 1px;
@@ -178,25 +189,28 @@
   --border-color-subtle: var(--color-border-subtle);
   --border-color-strong: var(--color-border-strong);
 
-  /* ── Ombre: quasi nessuna; quella dei menu a comparsa è lunga e tenue ─── */
+  /* ── Ombre: quasi nessuna ────────────────────────────────────────────── */
   --shadow-none: none;
-  --shadow-sm: 0 1px 2px rgb(16 17 15 / 0.08);
-  --shadow-md: 0 1.5rem 3rem -1.5rem rgb(0 0 0 / 0.3);
-  --shadow-lg: 0 1.5rem 3rem -1rem rgb(0 0 0 / 0.35);
+  --shadow-sm: 0 1px 2px rgb(26 27 26 / 0.06);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 1.5rem 3rem -1rem rgb(0 0 0 / 0.25);
 
-  /* ── Layout: grondaie larghe, colonna di lettura a 76rem come in AP ───── */
+  /* ── Layout: la pagina larga 108rem con grondaie 1,25 → 5 → 6,25rem ───── */
   --container-sm: 640px;
   --container-md: 768px;
   --container-lg: 1024px;
   --container-xl: 1280px;
-  --container-max: 76rem;
+  --container-max: 108rem;
+  --content-narrow: 48rem; /* la colonna dei testi e delle pagine interne */
   --container-padding-mobile: 1.25rem;
-  --container-padding-tablet: 2rem;
-  --container-padding-desktop: 3.5rem;
-  --page-padding: clamp(1.25rem, 0.5rem + 4vw, 5rem);
+  --container-padding-tablet: 2.5rem;
+  --container-padding-desktop: 5rem;
+  --page-padding: var(--container-padding-mobile);
   --content-max: 70ch;
-  --section-padding: clamp(2rem, 1.5rem + 3vw, 4.5rem);
-  --header-h: 4.25rem;
+  --section-padding: clamp(3rem, 2rem + 5vw, 7rem);
+  --header-h: 60px;
+  --header-offset: 81px; /* 12px di aria + 60px di barra + 9px */
+  --footer-reveal-h: clamp(14rem, 12rem + 14vw, 24rem); /* quanto pannello verde si scopre in fondo */
   --touch-target: 44px;
   --touch-target-large: 48px;
 
@@ -208,18 +222,18 @@
   --z-modal: 40;
   --z-toast: 50;
 
-  /* ── Motion (ANIMATIONS.md «Timing», «Easing»; le curve sono quelle di AP) ── */
+  /* ── Motion: le curve di reflection.ai ───────────────────────────────── */
   --duration-instant: 80ms;
   --duration-micro: 120ms;
   --duration-fast: 150ms;
-  --duration-normal: 240ms;
+  --duration-normal: 250ms;
   --duration-medium: 300ms;
-  --duration-slow: 550ms;
-  --duration-cinematic: 800ms;
-  --ease-standard: cubic-bezier(0.33, 1, 0.68, 1);
-  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-exit: cubic-bezier(0.65, 0, 0.35, 1);
-  --ease-emphasis: cubic-bezier(0.34, 1.3, 0.64, 1);
+  --duration-slow: 450ms;
+  --duration-cinematic: 700ms;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-enter: cubic-bezier(0, 0, 0.2, 1);
+  --ease-exit: cubic-bezier(0.83, 0, 0.17, 1);
+  --ease-emphasis: cubic-bezier(0.16, 1, 0.3, 1);
 
   /* ── Icone (ICONS.md) ────────────────────────────────────────────────── */
   --icon-stroke-width: 1.75px;
@@ -229,13 +243,20 @@
 
 @media (min-width: 768px) {
   :root {
-    --header-h: 5rem;
+    --page-padding: var(--container-padding-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --page-padding: var(--container-padding-desktop);
   }
 }
 
 /*
- * Superficie scura (il tema «inchiostro» di AP): ridefinisce i token
- * semantici, così i componenti dentro non sanno di essere su fondo scuro.
+ * Superficie scura: il verde profondo di reflection.ai (il loro «route-dark»).
+ * Ridefinisce i token semantici, così i componenti dentro non sanno di essere
+ * su fondo scuro.
  */
 .inverse {
   --color-text: var(--color-text-inverse);
@@ -244,29 +265,29 @@
   --color-text-strong: var(--color-text-inverse);
   --color-surface: var(--color-surface-inverse);
   --color-surface-raised: var(--color-surface-inverse-raised);
-  --color-surface-muted: var(--color-surface-inverse-raised);
+  --color-surface-muted: rgb(248 246 240 / 0.1);
   --color-border: var(--color-border-inverse);
   --color-border-subtle: var(--color-border-inverse);
   --color-border-strong: var(--color-border-inverse-strong);
-  --color-accent: var(--color-accent-on-dark);
-  --color-accent-hover: var(--color-text-inverse);
-  --color-accent-fill: var(--color-accent-on-dark);
-  --color-accent-soft: var(--color-surface-inverse-raised);
-  --color-primary: var(--paper);
-  --color-primary-hover: var(--paper-2);
-  --color-primary-soft: var(--color-surface-inverse-raised);
-  --color-success: #5fbf7a;
-  --color-warning: #d9a640;
-  --color-danger: var(--minio-bright);
+  --color-accent: var(--lime);
+  --color-accent-hover: var(--ivory);
+  --color-accent-soft: rgb(248 246 240 / 0.1);
+  --color-primary: var(--lime);
+  --color-primary-hover: var(--lime-2);
+  --color-primary-soft: rgb(248 246 240 / 0.1);
+  --color-success: #8fd39f;
+  --color-warning: #e4bb5a;
+  --color-danger: #f29a95;
   background: var(--color-surface-inverse);
   color: var(--color-text);
   color-scheme: dark;
 }
 
 /*
- * Breakpoint (RESPONSIVE.md «Breakpoint»): 480 · 640 · 768 · 1024 · 1100
- * (la testata si apre) · 1280 · 1440. Le custom property non funzionano
- * dentro @media: i valori vanno scritti letteralmente.
+ * Breakpoint (RESPONSIVE.md «Breakpoint»): 480 · 640 · 768 · 1024 · 1150
+ * (la navigazione si apre, come il «nav» di reflection.ai) · 1280 · 1440.
+ * Le custom property non funzionano dentro @media: i valori vanno scritti
+ * letteralmente.
  *
  * Input (RESPONSIVE.md «Matrice input»): gli :hover stanno dentro
  * `(hover: hover) and (pointer: fine)`, i bersagli allargati dentro

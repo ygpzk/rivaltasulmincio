@@ -13,21 +13,17 @@
   display: none !important;
 }
 
-/*
- * Carta piatta (STYLE.md «SUPERFICI»): nessuna grana, nessuna griglia. Il
- * fondo è la carta di albertopecchini.it e i pannelli le stanno sopra con un
- * filo d'inchiostro velato.
- */
+/* Avorio piatto (STYLE.md «SUPERFICI»): nessuna grana, nessuna griglia. */
 html {
   font-family: var(--font-sans);
   font-size: 100%;
-  line-height: var(--leading-relaxed);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-normal);
   color: var(--color-text);
   background-color: var(--color-bg);
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  scroll-padding-top: calc(var(--header-h) + 1.5rem);
-  scrollbar-gutter: stable;
+  scroll-padding-top: calc(var(--header-offset) + 1rem);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -48,12 +44,6 @@ body {
   /* Parole lunghe (URL, codici) vanno a capo invece di allargare la pagina (RESPONSIVE.md «Regola anti-overflow»). */
   overflow-wrap: break-word;
   overflow-x: clip;
-  /*
-   * Tutto minuscolo, nomi propri compresi (la regola del minuscolo di
-   * albertopecchini.it): il testo resta scritto normale nell'HTML, quindi
-   * titoli, motori di ricerca e lettori di schermo lo leggono come si scrive.
-   */
-  text-transform: lowercase;
 }
 
 /* Con il menu aperto la pagina sotto non scorre. */
@@ -67,7 +57,8 @@ main {
 
 img,
 svg,
-video {
+video,
+canvas {
   display: block;
   max-width: 100%;
   height: auto;
@@ -80,26 +71,6 @@ textarea {
   font: inherit;
   color: inherit;
   letter-spacing: inherit;
-  text-transform: inherit;
-}
-
-/* Quello che scrive il visitatore resta com'è; i suggerimenti sono testo del sito. */
-input,
-textarea {
-  text-transform: none;
-}
-
-::placeholder {
-  text-transform: lowercase;
-}
-
-/* Il codice, i tasti e le locandine originali si leggono come sono scritti. */
-code,
-kbd,
-samp,
-pre,
-.poster {
-  text-transform: none;
 }
 
 a {
@@ -125,6 +96,7 @@ kbd,
 samp {
   font-family: var(--font-mono);
   font-size: 0.9375em; /* compensazione ottica: il mono sembra più grande del sans alla stessa misura */
+  letter-spacing: 0;
 }
 
 /* Tasto (STYLE.md «SEARCH»: ⌘ K solo desktop). */
@@ -138,7 +110,7 @@ samp {
   line-height: var(--leading-ui);
   color: var(--color-text-muted);
   border: var(--border-width-thin) solid var(--color-border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
 }
 
 ::selection {
@@ -146,14 +118,14 @@ samp {
   color: var(--color-on-accent);
 }
 
-/* Focus visibile sempre (BORDERS.md «Focus»): l'anello è il minio. */
+/* Focus visibile sempre (BORDERS.md «Focus»): l'anello è il colore corrente, come su reflection.ai. */
 :focus {
   outline: none;
 }
 
 :focus-visible {
-  outline: var(--border-width-medium) solid var(--color-accent);
-  outline-offset: 3px;
+  outline: var(--border-width-medium) solid currentColor;
+  outline-offset: 4px;
 }
 
 main:focus {
@@ -171,6 +143,12 @@ main:focus {
   margin-inline: auto;
 }
 
+/* La colonna stretta delle pagine interne e dei testi. */
+.container--narrow {
+  width: min(100% - 2 * var(--page-padding), var(--content-narrow));
+  margin-inline: auto;
+}
+
 /* La colonna di testo. Il ritmo interno e i singoli blocchi stanno in components.css («Composizione del contenuto»). */
 .prose {
   max-width: var(--content-max);
@@ -184,12 +162,12 @@ main:focus {
   display: inline-flex;
   align-items: center;
   min-height: var(--touch-target);
-  padding: var(--space-2) var(--space-4);
-  font-family: var(--font-mono);
-  font-size: var(--text-label);
+  padding: var(--space-2) var(--space-5);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
   background: var(--color-surface-inverse);
   color: var(--color-text-inverse);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-full);
   transform: translateY(-200%);
   transition: transform var(--duration-fast) var(--ease-standard);
 }
@@ -256,8 +234,10 @@ main:focus {
 @media print {
   .site-header,
   .site-footer,
+  .footer-reveal,
   .search,
-  .skip-link {
+  .skip-link,
+  .hero__canvas {
     display: none;
   }
 

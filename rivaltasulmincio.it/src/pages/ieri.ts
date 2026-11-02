@@ -19,12 +19,12 @@ export function render(): PageResult {
   const pairs = themes.reduce((total, theme) => total + theme.pairs.length, 0);
 
   return {
-    title: 'Ieri',
+    title: 'Com’era',
     description: `${photos} fotografie d’archivio di Rivalta sul Mincio da due libri del paese: ${pairs} luoghi fotografati com’erano e come sono, e i giorni che il paese ricorda.`,
     main: html`
       ${pageHeader({
         title: 'Rivalta com’era',
-        crumbs: [{ label: 'Ieri' }],
+        crumbs: [{ label: 'Com’era' }],
         lead: html`${photos} fotografie da due libri del paese: ${pairs} punti ripresi due volte, fra gli anni Ottanta e il 2000, e le giornate che Rivalta ricorda. Trascina la linea per vedere com’era.`,
         extra: html`<div class="hero__actions hero__actions--start">
           ${pill({ href: '#confronti', label: 'Com’era, com’è', tone: 'primary', size: 'sm' })}

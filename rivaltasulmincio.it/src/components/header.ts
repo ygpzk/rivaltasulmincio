@@ -18,7 +18,7 @@ export function header(path: string): Html {
   );
   const center = mapCenter();
   const entry = (item: (typeof items)[number], index: number) =>
-    html`<li class="site-nav__item" style="--i:${index}"><a class="site-nav__link" href="${item.href}"${isActive(path, item.href) ? raw(' aria-current="page"') : ''}><span class="site-nav__index" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>${item.label}</a></li>`;
+    html`<li class="site-nav__item" style="--i:${index}"><a class="site-nav__link" href="${item.href}"${isActive(path, item.href) ? raw(' aria-current="page"') : ''}><span class="site-nav__index" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>${item.label}${'badge' in item ? html`<span class="site-nav__badge">${item.badge}</span>` : ''}</a></li>`;
 
   return html`<header class="site-header" data-header>
   <div class="site-header__inner">

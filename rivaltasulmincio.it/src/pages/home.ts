@@ -53,6 +53,7 @@ export function render(): PageResult {
       <div class="hero__actions">
         ${pill({ href: '/mappa', label: 'Apri la mappa', tone: 'primary' })}
         ${pill({ href: '/giornale', label: 'Il giornale' })}
+        ${pill({ href: '/ieri', label: 'Rivalta com’era', tone: 'accent' })}
       </div>
       ${searchForm()}
     </div>
@@ -76,7 +77,7 @@ export function render(): PageResult {
     ...(site.features.weather
       ? [{ href: '/meteo', icon: 'cloud-sun' as IconName, title: 'Meteo', text: 'Le condizioni di adesso, le prossime ore e i prossimi giorni dalla stazione meteorologica del paese.', count: METEOMINCIO.name }]
       : []),
-    { href: '/ieri', icon: 'camera', title: 'Ieri', text: 'Fotografie d’archivio da due libri del paese: lo stesso punto com’era e com’è, e le giornate che Rivalta ricorda.', count: `${photos} fotografie` },
+    { href: '/ieri', icon: 'camera', title: 'Com’era', text: 'Fotografie d’archivio da due libri del paese: lo stesso punto com’era e com’è, e le giornate che Rivalta ricorda.', count: `${photos} fotografie` },
     { href: '/fonti', icon: 'database', title: 'Fonti', text: 'Ogni dato del progetto mantiene la propria provenienza: enti, istituti e archivi, con la data dell’ultima verifica.', count: `${sources.length} registrate · ${official} ${official === 1 ? 'ufficiale' : 'ufficiali'}` },
   ];
   const sezioni = html`<section class="section" aria-labelledby="sezioni-titolo" data-reveal>
@@ -150,18 +151,16 @@ export function render(): PageResult {
     </div>
   </section>`;
 
-  // ── Ieri: una coppia com'era/com'è ──────────────────────────────────────
+  // ── Com'era: una coppia a tutta larghezza, subito dopo la frase ─────────
   const ieri = pair
     ? html`<section class="section" aria-labelledby="ieri-titolo" data-reveal>
-    <div class="split">
-      <div class="split__copy">
-        ${tagLabel('Ieri')}
-        <h2 id="ieri-titolo">Lo stesso angolo, vent’anni dopo</h2>
-        <p>${photos} fotografie da due libri del paese: sedici punti ripresi due volte, fra gli anni Ottanta e il 2000, e le giornate che Rivalta ricorda. Trascina la linea.</p>
-        ${pill({ href: '/ieri', label: 'Rivalta com’era', size: 'sm' })}
-      </div>
-      <div>${compareFigure(pair, { sizes: '(max-width: 64rem) 100vw, 56rem', id: false })}</div>
-    </div>
+    <header class="section__head">
+      ${tagLabel('Com’era')}
+      <h2 id="ieri-titolo">Lo stesso angolo, vent’anni dopo</h2>
+      <p class="section__intro">${photos} fotografie da due libri del paese: sedici punti ripresi due volte, fra gli anni Ottanta e il 2000, e le giornate che Rivalta ricorda. Trascina la linea.</p>
+      ${pill({ href: '/ieri', label: 'Tutte le fotografie', tone: 'primary', size: 'sm', class: 'section__more' })}
+    </header>
+    ${compareFigure(pair, { sizes: '(max-width: 108rem) 100vw, 108rem', id: false })}
   </section>`
     : html``;
 
@@ -207,7 +206,7 @@ export function render(): PageResult {
   return {
     title: site.name,
     description: site.description,
-    main: html`${hero}${statement}${sezioni}${meteo}${fonti}${giornale}${ieri}${mappa}${dati}`,
+    main: html`${hero}${statement}${ieri}${sezioni}${meteo}${fonti}${giornale}${mappa}${dati}`,
   };
 }
 

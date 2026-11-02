@@ -59,6 +59,15 @@ Fotografie originali del progetto, riprese dal sito precedente (IMAGES.md).
 
 Oggi 50 luoghi su 184 hanno una fotografia. I luoghi senza restano identici a prima: la figura appare solo se esiste la voce.
 
+### L'archivio (/ieri)
+
+Le fotografie d'epoca riprodotte da due libri del paese, «Rivalta sul Mincio 2001–2013 — Eventi e Ricordi» e «Rivalta nel '900 — Immagini per non dimenticare», entrambi in dono da Annasofia Sanfelici.
+
+- **dati** — `data/images/archive-images.json`: 16 coppie com'era/com'è (`pairs`, per tema), 8 giorni con le loro fotografie (`days`) e i due libri (`books`), ognuno legato al registro fonti (`source-010`, `source-011`). Ogni fotografia ha alt descrittivo, didascalia, data come la dà il libro (`approx` quando è «circa») e, se c'è, la pagina.
+- **file** — `public/foto/archivio/<file>-<larghezza>.webp`, cinque larghezze (480, 720, 960, 1440, 1600: gli originali sono scansioni a 1600 px). Le derivate si fanno con `node scripts/foto-webp.ts <sorgente> <destinazione> [larghezze]`; i master restano fuori dal repository.
+- **interfaccia** — `src/archive/service.ts` (percorsi, raggruppamenti, voci di ricerca), `src/archive/components.ts` (il confronto, il nastro di un giorno, la scheda del libro, la finestra), `src/archive/client.ts` (la linea da trascinare con l'ingresso animato, la finestra `<dialog>`), `src/styles/archivio.css`. Senza JavaScript le due fotografie di una coppia stanno una accanto all'altra e ogni fotografia del nastro apre il file.
+- **regola** — una fotografia d'archivio dice sempre da dove viene: la scheda dei libri chiude la pagina e le due fonti stanno in `/fonti`.
+
 ## Meteo
 
 Fonte: la stazione MeteoMincio (WEATHER.md). Il sito non ha API: pubblica i file della stazione senza header CORS, quindi il browser non può leggerli direttamente.
@@ -74,11 +83,12 @@ Interruttore: `site.features.weather` in `src/app/site.ts` toglie il blocco dall
 ```text
 api/             funzioni serverless (meteo)
 data/            dataset (JSON): sources/, journal/, places/, osm/, images/
-public/          asset statici serviti tali e quali (foto/luoghi/)
-scripts/         plugin di sviluppo, prerender, sincronizzazione OSM
+public/          asset statici serviti tali e quali (foto/luoghi/, foto/archivio/)
+scripts/         plugin di sviluppo, prerender, sincronizzazione OSM, derivate WebP
 src/
   animations/    reveal e contatori (client)
   app/           router, contratto di pagina, identità del sito, template
+  archive/       le fotografie d'archivio: servizio, componenti, confronto e finestra (client)
   components/    testata, piè di pagina, sezione, testata di pagina, ricerca, badge, icone, numeri, mappa (markup), fotografie
   data/          caricamento tipizzato dei dataset
   journal/       tassonomia, regole editoriali, scheda articolo

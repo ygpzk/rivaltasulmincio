@@ -1,3 +1,4 @@
+import { archiveSearchEntries } from '../archive/service';
 import { contentText } from '../content/text';
 import { posterFor } from '../data/posters';
 import { archiveArticles, articlePath } from '../journal/service';
@@ -63,5 +64,8 @@ export function buildSearchIndex(now = new Date()): SearchEntry[] {
     official: isOfficial(source) || undefined,
   }));
 
-  return [...articoli, ...locandine, ...luoghi, ...fonti];
+  /* Le fotografie d'archivio: una voce per coppia com'era/com'è e una per giorno. */
+  const archivio = archiveSearchEntries();
+
+  return [...articoli, ...locandine, ...luoghi, ...archivio, ...fonti];
 }

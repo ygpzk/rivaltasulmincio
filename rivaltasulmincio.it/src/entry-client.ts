@@ -27,6 +27,16 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-marquee]')) {
   void import('./home/marquee').then(({ mountMarquee }) => mountMarquee(root));
 }
 
+// L'archivio (src/archive/): il confronto com'era/com'è e la finestra sulle fotografie.
+const compares = [...document.querySelectorAll<HTMLElement>('[data-compare]')];
+const lightbox = document.querySelector<HTMLDialogElement>('[data-lightbox-dialog]');
+if (compares.length > 0 || lightbox) {
+  void import('./archive/client').then(({ mountCompare, mountLightbox }) => {
+    compares.forEach(mountCompare);
+    if (lightbox) mountLightbox(lightbox);
+  });
+}
+
 for (const form of document.querySelectorAll<HTMLElement>('[data-search]')) {
   mountSearch(form);
 }

@@ -1,0 +1,743 @@
+{
+  "format": {
+    "dir": "/foto/archivio",
+    "widths": [
+      480,
+      720,
+      960,
+      1440,
+      1600
+    ],
+    "width": 1600,
+    "height": 1067
+  },
+  "books": [
+    {
+      "id": "libro-eventi",
+      "sourceId": "source-010",
+      "title": "Rivalta sul Mincio 2001–2013 — Eventi e Ricordi",
+      "publisher": "Nuova Universo Gutenberg Edizioni",
+      "text": "Dodici anni di paese raccolti in un volume: le feste, i lavori, le sere che poi si raccontano.",
+      "gift": "Annasofia Sanfelici",
+      "cover": {
+        "file": "eventi-e-ricordi-copertina",
+        "widths": [
+          320,
+          640,
+          820
+        ],
+        "width": 820,
+        "height": 1156,
+        "alt": "La copertina del libro «Rivalta sul Mincio 2001-2013 — Eventi e Ricordi»: il paese visto dall’alto, sopra la fotografia di un canneto che brucia sul fiume e una barca verde tirata a riva."
+      }
+    },
+    {
+      "id": "libro-900",
+      "sourceId": "source-011",
+      "title": "Rivalta nel ’900 — Immagini per non dimenticare",
+      "publisher": "Circolo Fotografico Rivalta · Comune di Rodigo",
+      "text": "Il paese del Novecento a coppie di fotografie: la stessa strada, la stessa casa, com’era e com’è.",
+      "gift": "Annasofia Sanfelici",
+      "cover": {
+        "file": "rivalta-nel-900-copertina",
+        "widths": [
+          320,
+          640,
+          820
+        ],
+        "width": 820,
+        "height": 1156,
+        "alt": "La copertina del libro «rivalta nel ’900 — Immagini per non dimenticare»: una fotografia seppia del porto di Rivalta, con la pescheria a portico sull’acqua, le barche tirate a riva e il campanile fra gli alberi."
+      }
+    }
+  ],
+  "pairs": [
+    {
+      "id": "teatro-rossini",
+      "theme": "Le due sale",
+      "title": "Il Teatro Rossini",
+      "text": "Il teatro abbattuto nel 1994; sei anni dopo, al suo posto, un lotto vuoto dietro la rete.",
+      "book": "libro-900",
+      "before": {
+        "id": "arc-001",
+        "file": "teatro-rossini-1994-la-demolizione",
+        "alt": "Un edificio in mattoni sventrato, il tetto squarciato con le travi scoperte e un grande cumulo di calcinacci che invade la strada in primo piano; dietro, le case del paese e rami spogli.",
+        "caption": "il Teatro Rossini durante l'abbattimento",
+        "date": "1994",
+        "approx": true,
+        "dateTaken": "1994"
+      },
+      "after": {
+        "id": "arc-002",
+        "file": "teatro-rossini-2000",
+        "alt": "Una via stretta con, sulla destra, un terreno sgombro chiuso da una rete metallica e un cancello; oltre la rete case basse e un fabbricato più alto, a sinistra il fianco di un'abitazione e un lampione.",
+        "caption": "dov'era il Teatro Rossini: il vuoto recintato",
+        "date": "2000",
+        "approx": true,
+        "dateTaken": "2000"
+      }
+    },
+    {
+      "id": "teatro-italia",
+      "theme": "Le due sale",
+      "title": "Il Teatro Italia",
+      "text": "La sala «dla Pina» all’angolo della via e, vent’anni dopo, la stessa cortina diventata case.",
+      "book": "libro-900",
+      "before": {
+        "id": "arc-003",
+        "file": "teatro-italia-1980",
+        "alt": "Un edificio a due piani intonacato che fa angolo con la strada, con una fascia dipinta scolorita lungo il primo piano e una parte bassa rifatta di bianco; accanto una casa in mattoni con un passaggio ad arco, la strada che curva vuota, cielo coperto.",
+        "caption": "il Teatro Italia «dla Pina» all'angolo",
+        "date": "1980",
+        "approx": true,
+        "dateTaken": "1980"
+      },
+      "after": {
+        "id": "arc-004",
+        "file": "teatro-italia-2000-le-case",
+        "alt": "La stessa cortina di case lungo la strada, ora con le facciate intonacate in tinte chiare, balconi e portoncini ad arco; auto in sosta lungo il marciapiede e, dietro i tetti, un traliccio per le antenne.",
+        "caption": "«c'era una volta il Teatro Italia»: le case oggi",
+        "date": "2000",
+        "approx": true,
+        "dateTaken": "2000"
+      }
+    },
+    {
+      "id": "pisiun-granda-via",
+      "theme": "La «pisiun granda»",
+      "title": "Da via Settefrati",
+      "text": "La possessione nascosta dalla siepe e, con la strada aperta, la casa che si vede.",
+      "book": "libro-900",
+      "before": {
+        "id": "arc-005",
+        "file": "pisiun-granda-1981-via-settefrati",
+        "alt": "Una strada di campagna fiancheggiata a sinistra da una massa fitta e scura di siepe e alberi che nasconde gli edifici; in fondo affiora una casa colonica a due piani, lampioni sulla destra, strada vuota.",
+        "caption": "la «pisiun granda» dietro la siepe, da via Settefrati",
+        "date": "1981",
+        "approx": true,
+        "dateTaken": "1981"
+      },
+      "after": {
+        "id": "arc-006",
+        "file": "pisiun-granda-2000-via-settefrati",
+        "alt": "La stessa via ora sgombra, con una casa a due piani intonacata e un oculo tondo sul frontone a sinistra, un corpo di fabbrica più lungo oltre; lampioni nuovi, alberelli appena messi, un segnale di dare precedenza, alberi spogli.",
+        "caption": "la stessa strada aperta, la casa in vista",
+        "date": "2000",
+        "approx": true,
+        "dateTaken": "2000"
+      }
+    },
+    {
+      "id": "pisiun-granda-incrocio",
+      "theme": "La «pisiun granda»",
+      "title": "L’incrocio",
+      "text": "La strada bianca davanti alle stalle e, nello stesso punto, il parcheggio nuovo.",
+      "book": "libro-900",
+      "before": {
+        "id": "arc-007",
+        "file": "pisiun-granda-1983-incrocio",
+        "alt": "Una strada sterrata che si allontana diritta; a sinistra un palo del semaforo e un cartello con un telo «MOSTRA», a destra le lunghe stalle basse della corte con il tetto in coppi avvallato e pioppi alti dietro.",
+        "caption": "l'incrocio della possessione, strada bianca",
+        "date": "23 set 1983",
+        "dateTaken": "1983-09-23"
+      },
+      "after": {
+        "id": "arc-008",
+        "file": "pisiun-granda-2000-il-parcheggio",
+        "alt": "Un'area di sosta asfaltata e delimitata da cordoli, con due auto ferme, davanti a una casa a due piani restaurata con un pannello dipinto sulla parete e le persiane; alberelli ornamentali, un cartello con il nome «Rivalta», conifere sul fondo.",
+        "caption": "lo stesso incrocio col parcheggio nuovo",
+        "date": "2000",
+        "approx": true,
+        "dateTaken": "2000"
+      }
+    },
+    {
+      "id": "pisiun-granda-corte",
+      "theme": "La «pisiun granda»",
+      "title": "La corte",
+      "text": "Dentro la corte prima del restauro e dopo, con il dipinto rifatto sulla parete di testa.",
+      "book": "libro-900",
+      "before": {
+        "id": "arc-009",
+        "file": "pisiun-granda-1989-la-corte",
+        "alt": "Il cortile di una corte rurale con una casa colonica a due piani e un grande portone ad arco carraio, l'intonaco scrostato; in primo piano una bassa costruzione con il tetto in coppi sfondato, a destra un muro cieco di mattoni, aia sterrata, un'auto piccola.",
+        "caption": "dentro la corte, prima del restauro",
+        "date": "1989",
+        "approx": true,
+        "dateTaken": "1989"
+      },
+      "after": {
+        "id": "arc-010",
+        "file": "pisiun-granda-2000-la-corte",
+        "alt": "Un lungo fabbricato a due piani intonacato di chiaro, con un grande pannello dipinto — una figura — sulla parete di testa e finestre con persiane regolari; una fila di sosta con due auto, alberelli, un lampione nuovo.",
+        "caption": "la corte restaurata, il dipinto rifatto",
+        "date": "2000",
+        "approx": true,
+        "dateTaken": "2000"
+      }
+    },
+    {
+      "id": "cascina-cantoni",
+      "theme": "Le cascine",
+      "title": "La cascina Cantoni",
+      "text": "Casa e fienile di Amadio Cantoni; al loro posto, un muro di cinta e le case.",
+      "book": "libro-900",
+      "before": {
+        "id": "arc-011",
+        "file": "cascina-cantoni-1981",
+        "alt": "Un cascinale con una casa colonica a due piani a destra e un portone ad arco, e un lungo porticato basso di fienile con pilastri in muratura che si allunga a sinistra sotto grandi alberi; erba incolta in primo piano.",
+        "caption": "la cascina di Amadio Cantoni, casa e fienile",
+        "date": "1981",
+        "approx": true,
+        "dateTaken": "1981"
+      },
+      "after": {
+        "id": "arc-012",
+        "file": "cascina-cantoni-2000",
+        "alt": "Una via diritta con un lungo muro di recinzione basso a sinistra e lampioni, a destra una casa a due piani con un corpo più basso; alberelli spogli, una gru da cantiere in lontananza, cielo coperto.",
+        "caption": "dov'era la cascina: muro di cinta e case",
+        "date": "2000",
+        "approx": true,
+        "dateTaken": "2000"
+      }
+    },
+    {
+      "id": "centro-parco",
+      "theme": "Le cascine",
+      "title": "Il Centro Parco",
+      "text": "Il retro della corte, con gli attrezzi nel campo, e la corte restaurata, sede del Centro Parco.",
+      "book": "libro-900",
+      "before": {
+        "id": "arc-013",
+        "file": "centro-parco-1980-il-retro",
+        "alt": "Il fronte posteriore di un complesso rurale: una casa a due piani e lunghe ali più basse con portico, i tetti in coppi avvallati; davanti attrezzi agricoli e un'intelaiatura metallica, campo aperto.",
+        "caption": "il retro della corte del Centro Parco, prima",
+        "date": "1980",
+        "approx": true,
+        "dateTaken": "1980"
+      },
+      "after": {
+        "id": "arc-014",
+        "file": "centro-parco-2000",
+        "alt": "Lo stesso complesso restaurato, con un edificio a due piani intonacato a sinistra dalle finestre regolari e un'ala a portico aperto con pilastri di legno a destra; prato ordinato, panche e pannelli informativi.",
+        "caption": "la corte restaurata, sede del Centro Parco",
+        "date": "2000",
+        "approx": true,
+        "dateTaken": "2000"
+      }
+    },
+    {
+      "id": "al-dos",
+      "theme": "Le cascine",
+      "title": "«Al dòs»",
+      "text": "Il fabbricato col tetto sfondato e, oggi, la casa in fondo all’orto.",
+      "book": "libro-900",
+      "before": {
+        "id": "arc-015",
+        "file": "al-dos-1985",
+        "alt": "In primo piano a destra un basso fabbricato agricolo con il tetto in coppi rotto e l'intonaco che cade; una stradina sterrata in salita ne costeggia il muro, dietro una casa a due piani, sulla destra uno steccato di pali.",
+        "caption": "«al dòs»: il fabbricato col tetto sfondato",
+        "date": "1985",
+        "approx": true,
+        "dateTaken": "1985"
+      },
+      "after": {
+        "id": "arc-016",
+        "file": "al-dos-2000",
+        "alt": "Una casa a due piani con la parete di testa cieca e una tettoia bassa davanti, vista al di là di un orto con viti e canne spoglie; un palo della luce alto in primo piano a destra, una fila di case a sinistra.",
+        "caption": "«al dòs» oggi: la casa in fondo all'orto",
+        "date": "2000",
+        "approx": true,
+        "dateTaken": "2000"
+      }
+    },
+    {
+      "id": "dopolavoro-fronte",
+      "theme": "Il dopolavoro di via Gramsci",
+      "title": "Il fronte sulla via",
+      "text": "L’intonaco andato e, sullo stesso fronte, le botteghe restaurate con la bandiera.",
+      "book": "libro-900",
+      "before": {
+        "id": "arc-017",
+        "file": "dopolavoro-gramsci-1987",
+        "alt": "Un edificio a due piani che corre lungo la strada, con l'intonaco molto degradato e striato, le finestre a piano terra con inferriate e una porta; una cancellata di ferro e un pilastro intonacato all'angolo vicino, marciapiede vuoto.",
+        "caption": "il dopolavoro di via Gramsci, intonaco andato",
+        "date": "1987",
+        "approx": true,
+        "dateTaken": "1987"
+      },
+      "after": {
+        "id": "arc-018",
+        "file": "via-gramsci-2000",
+        "alt": "Lo stesso edificio con l'intonaco chiaro rifatto e persiane verdi, una fila di botteghe e garage al piano terra con un portone di legno, una bandiera tricolore sopra un ingresso; auto in sosta lungo il marciapiede, un lampione a mensola.",
+        "caption": "lo stesso fronte restaurato, botteghe e bandiera",
+        "date": "2000",
+        "approx": true,
+        "dateTaken": "2000"
+      }
+    },
+    {
+      "id": "dopolavoro-retro",
+      "theme": "Il dopolavoro di via Gramsci",
+      "title": "Il retro",
+      "text": "La scala esterna con i panni stesi e, al suo posto, il centro commerciale-finanziario.",
+      "book": "libro-900",
+      "before": {
+        "id": "arc-019",
+        "file": "dopolavoro-gramsci-1986",
+        "alt": "Una parete a due piani con l'intonaco caduto a chiazze e una scala esterna che sale a una porta al primo piano; panni scuri stesi su un filo teso lungo il muro, una cancellata di ferro davanti, una scritta a vernice vicino alla porta.",
+        "caption": "l'ex dopolavoro prima: scala esterna e panni stesi",
+        "date": "1986",
+        "approx": true,
+        "dateTaken": "1986"
+      },
+      "after": {
+        "id": "arc-020",
+        "file": "dopolavoro-gramsci-2000-il-centro",
+        "alt": "Un grande edificio nuovo a due piani intonacato di chiaro, con una griglia regolare di finestre con persiane e un tetto a padiglione basso, visto d'angolo; un lampione di ghisa davanti, un muretto di recinzione con inferriata e una giovane conifera, strada laterale tranquilla.",
+        "caption": "al suo posto, il centro commerciale-finanziario",
+        "date": "2000",
+        "approx": true,
+        "dateTaken": "2000"
+      }
+    },
+    {
+      "id": "via-tezzone",
+      "theme": "Le case e le botteghe",
+      "title": "Casa Sarzi Sartori, via Tezzone",
+      "text": "La casa di «Pèpo e Gigeto», vuota, e le case nuove che l’hanno sostituita.",
+      "book": "libro-900",
+      "before": {
+        "id": "arc-021",
+        "file": "via-tezzone-1998-casa-sarzi-sartori",
+        "alt": "Una casa a due piani intonacata con le finestre senza infissi e il tetto in coppi rado, in mezzo a un prato incolto; a destra una rete metallica la separa da una casa più recente, alberi sul fondo a sinistra.",
+        "caption": "casa Sarzi Sartori «Pèpo e Gigeto», vuota",
+        "date": "1998",
+        "approx": true,
+        "dateTaken": "1998"
+      },
+      "after": {
+        "id": "arc-022",
+        "file": "via-tezzone-2000-le-case-nuove",
+        "alt": "Una casa nuova a due piani con tetto a padiglione e gronde larghe e una scala esterna che porta a un balcone con ringhiera; un muretto con cancello e una fila di cassette delle lettere, cortile di ghiaia, case più vecchie e una conifera in lontananza a sinistra.",
+        "caption": "al suo posto le case nuove",
+        "date": "2000",
+        "approx": true,
+        "dateTaken": "2000"
+      }
+    },
+    {
+      "id": "al-bacanin",
+      "theme": "Le case e le botteghe",
+      "title": "«Al Bacanin»",
+      "text": "La casa «dla Olga e Tarabin» con l’intonaco a pezzi e la stessa, ora casa Storti, rimessa a nuovo.",
+      "book": "libro-900",
+      "before": {
+        "id": "arc-023",
+        "file": "al-bacanin-1986",
+        "alt": "Una casa di paese a due piani con l'intonaco scrostato e chiazzato e le persiane malandate, una piccola tettoia addossata a destra; un cassone dei rifiuti all'angolo e un po' di neve per terra, luce invernale.",
+        "caption": "«Al Bacanin» dla Olga e Tarabin, intonaco a pezzi",
+        "date": "1986",
+        "approx": true,
+        "dateTaken": "1986"
+      },
+      "after": {
+        "id": "arc-024",
+        "file": "al-bacanin-2000-casa-storti",
+        "alt": "La stessa casa restaurata, vista d'angolo: intonaco liscio color crema, cornici modanate alle finestre del primo piano, un ampio portone di garage al piano terra; un'ala bassa bianca a destra con un cortile chiuso da cancello, marciapiede davanti.",
+        "caption": "la stessa casa — ora casa Storti — rimessa a nuovo",
+        "date": "2000",
+        "approx": true,
+        "dateTaken": "2000"
+      }
+    },
+    {
+      "id": "al-pescatore",
+      "theme": "Le case e le botteghe",
+      "title": "La trattoria «Al Pescatore»",
+      "text": "La trattoria dei Pezzini all’angolo e, cinque anni dopo, la villa con la loggia.",
+      "book": "libro-900",
+      "before": {
+        "id": "arc-025",
+        "file": "al-pescatore-1992",
+        "alt": "Una casa a due piani semplice sull'angolo di una strada, intonaco ocra sbiadito e persiane, una piccola tettoia e un edificio basso bianco a sinistra; un'auto piccola ferma sullo sterrato, foglie di palma e una conifera a destra, strada larga e vuota.",
+        "caption": "la trattoria «Al Pescatore» dei Pezzini, all'angolo",
+        "date": "1992",
+        "approx": true,
+        "dateTaken": "1992"
+      },
+      "after": {
+        "id": "arc-026",
+        "file": "al-pescatore-1997",
+        "alt": "Sull'angolo una villa con tetto a padiglione e gronde larghe, una loggia a cinque archi al piano terra e finestre con persiane in simmetria; una recinzione in muratura e ferro con pilastri sormontati da sfere di pietra, una siepe potata, marciapiede lungo la strada.",
+        "caption": "la stessa cantonata rifatta a villa con loggia",
+        "date": "1997",
+        "approx": true,
+        "dateTaken": "1997"
+      }
+    },
+    {
+      "id": "via-francesca",
+      "theme": "Le case e le botteghe",
+      "title": "L’officina Bellini, via Francesca",
+      "text": "L’officina meccanica e, nello stesso punto, il negozio «Fior di Loto».",
+      "book": "libro-900",
+      "before": {
+        "id": "arc-027",
+        "file": "via-francesca-1982-officina-bellini",
+        "alt": "Un fabbricato basso e semplice intonacato con un grande portone a saracinesca, su un angolo; dietro una casa vecchia più bassa, in primo piano un palo con un lampione, la strada che curva, luce invernale radente, un cartello bianco sul ciglio.",
+        "caption": "l'officina meccanica Bellini in via Francesca",
+        "date": "1982",
+        "approx": true,
+        "dateTaken": "1982"
+      },
+      "after": {
+        "id": "arc-028",
+        "file": "via-francesca-2000-fior-di-loto",
+        "alt": "Un angolo di strada con una bottega ricavata sotto un portico rientrante al piano terra di un edificio e un'insegna sopra l'ingresso; a destra prosegue una casa a due piani lungo la via, alberelli spogli sul marciapiede, strada asfaltata larga, un'auto in lontananza.",
+        "caption": "nello stesso punto, il negozio «Fior di Loto»",
+        "date": "2000",
+        "approx": true,
+        "dateTaken": "2000"
+      }
+    },
+    {
+      "id": "chiesa-interno",
+      "theme": "La chiesa e il monumento",
+      "title": "La parrocchiale, dentro",
+      "text": "La navata prima e dopo il restauro.",
+      "book": "libro-900",
+      "before": {
+        "id": "arc-029",
+        "file": "chiesa-interno-1980",
+        "alt": "La navata di una chiesa verso l'altare, con volta a botte, pilastri e altari laterali; banchi di legno, lampadari appesi, un pulpito a sinistra e composizioni di fiori lungo la navata centrale. Luce bassa.",
+        "caption": "l'interno della parrocchiale prima del restauro",
+        "date": "1980",
+        "approx": true,
+        "dateTaken": "1980"
+      },
+      "after": {
+        "id": "arc-030",
+        "file": "chiesa-interno-2000",
+        "alt": "La stessa navata, più luminosa, con le pareti rischiarate, stendardi appesi in alto ai lati, il pulpito a sinistra, i dipinti degli altari laterali e un tappeto rosso lungo la navata centrale fra i banchi.",
+        "caption": "la stessa navata dopo il restauro",
+        "date": "2000",
+        "approx": true,
+        "dateTaken": "2000"
+      }
+    },
+    {
+      "id": "monumento-caduti",
+      "theme": "La chiesa e il monumento",
+      "title": "Il Monumento ai Caduti",
+      "text": "La stele lesionata e lo stesso monumento ripulito, nel viale.",
+      "book": "libro-900",
+      "before": {
+        "id": "arc-031",
+        "file": "monumento-caduti-1994",
+        "alt": "Un'alta stele di pietra con una lunga lesione verticale, chiusa da una bassa ringhiera di ferro su un terreno di ghiaia; alberi capitozzati e spogli ai lati, un edificio rotondo dietro a sinistra, un'auto bianca in sosta, una cordicella tesa in primo piano.",
+        "caption": "il Monumento ai Caduti, la stele lesionata",
+        "date": "1994",
+        "approx": true,
+        "dateTaken": "1994"
+      },
+      "after": {
+        "id": "arc-032",
+        "file": "monumento-caduti-2000",
+        "alt": "Lo stesso monumento ai caduti, ora pulito, posto in fondo a un vialetto lastricato in un viale di grandi alberi frondosi; prati ai lati, bassi paletti lungo il percorso, luce estiva.",
+        "caption": "lo stesso monumento ripulito, nel viale",
+        "date": "2000",
+        "approx": true,
+        "dateTaken": "2000"
+      }
+    }
+  ],
+  "days": [
+    {
+      "id": "madonnina-2004",
+      "title": "La Madonnina di Piazza Chiesa",
+      "text": "La sera del 27 giugno 2004 la statua, ancora sotto il telo, viene scoperta, illuminata e benedetta davanti al paese.",
+      "book": "libro-eventi",
+      "date": "27 giugno 2004",
+      "dateTaken": "2004-06-27",
+      "photos": [
+        {
+          "id": "arc-033",
+          "file": "madonnina-2004-velata",
+          "alt": "In piazza, al crepuscolo, la statua ancora avvolta in un telo bianco sopra la fontana nuova; attorno le panchine con qualche persona seduta, i lampioni a due luci già accesi, aiuole di fiori rossi e alberi giovani, e dietro le case del paese.",
+          "caption": "la Madonnina ancora sotto il telo",
+          "date": "27 giu 2004",
+          "dateTaken": "2004-06-27"
+        },
+        {
+          "id": "arc-034",
+          "file": "madonnina-2004-benedizione",
+          "alt": "Di notte la statua bianca della Madonnina, illuminata sul suo piedistallo sopra la fontana; davanti un sacerdote con la stola legge dal libro, bambini vestiti di bianco e la gente seduta sulle panchine guardano.",
+          "caption": "scoperta e illuminata, la benedizione",
+          "date": "27 giu 2004",
+          "dateTaken": "2004-06-27"
+        },
+        {
+          "id": "arc-035",
+          "file": "madonnina-2004-la-gente",
+          "alt": "Una folla in piedi sotto gli alberi, di notte, con lo sguardo rivolto verso la statua; in primo piano un anziano seduto su una sedia con il bastone fra le mani, accanto una ragazza con un vestito rosso.",
+          "caption": "il paese che guarda",
+          "date": "27 giu 2004",
+          "dateTaken": "2004-06-27"
+        }
+      ]
+    },
+    {
+      "id": "buriel-2006",
+      "title": "Il burièl",
+      "text": "La catasta di canne a Corte Mincio, con il fantoccio in punta, e il falò dell’Epifania sul fiume, con la neve per terra.",
+      "book": "libro-eventi",
+      "date": "6 gennaio 2006",
+      "dateTaken": "2006-01-06",
+      "photos": [
+        {
+          "id": "arc-036",
+          "file": "buriel-2006-la-catasta",
+          "alt": "Al crepuscolo, una catasta conica di canne alta diverse volte una persona, con un fantoccio vestito issato in punta; la gente le sta attorno, dietro corre il Mincio e per terra c'è la neve.",
+          "caption": "il burièl a Corte Mincio, prima del fuoco",
+          "date": "6 gen 2006",
+          "dateTaken": "2006-01-06",
+          "page": 62
+        },
+        {
+          "id": "arc-037",
+          "file": "buriel-2006-il-falo",
+          "alt": "La stessa catasta in fiamme nel buio: il fuoco è salito fino al fantoccio e il fumo va di lato, mentre la gente guarda da dietro le transenne.",
+          "caption": "il burièl in fiamme",
+          "date": "6 gen 2006",
+          "dateTaken": "2006-01-06",
+          "page": 62
+        }
+      ]
+    },
+    {
+      "id": "gemellaggio-berg",
+      "title": "Il gemellaggio con Berg",
+      "text": "Il corteo per le vie del paese, le fasce affiancate, la banda davanti all’ex Ostello, il ricevimento, il coro in chiesa e la pallavolo in palestra: la visita della comunità tedesca di Berg.",
+      "book": "libro-eventi",
+      "date": "fra il 2001 e il 2013",
+      "photos": [
+        {
+          "id": "arc-038",
+          "file": "gemellaggio-berg-corteo",
+          "alt": "Un corteo cammina per una via del paese dietro a un vessillo scuro con lo stemma comunale: in testa un vigile, poi la banda in costume tradizionale bavarese, seguita da un gruppo di uomini in abiti civili.",
+          "caption": "il corteo di Berg per le vie del paese"
+        },
+        {
+          "id": "arc-039",
+          "file": "gemellaggio-berg-le-fasce",
+          "alt": "Sette uomini in fila davanti a un edificio: al centro uno in costume tradizionale rosso e nero, ai suoi lati due amministratori con le fasce — una tricolore, una rossa e gialla — gli altri in abiti civili.",
+          "caption": "le due fasce affiancate, sindaco e rappresentante tedesco"
+        },
+        {
+          "id": "arc-040",
+          "file": "gemellaggio-berg-concerto-ostello",
+          "alt": "Una banda in costume tradizionale, ottoni e grancassa, suona in cerchio davanti a una palazzina bianca con la scritta «Ostello del Mincio»; un fotografo in primo piano li riprende.",
+          "caption": "la banda davanti all'ex Ostello del Mincio"
+        },
+        {
+          "id": "arc-041",
+          "file": "gemellaggio-berg-il-dono",
+          "alt": "In una sala affollata un uomo in giacca scura porge un cesto regalo incartato a un anziano con la fascia tricolore, mentre altri applaudono attorno; sullo sfondo un murale con un paesaggio fluviale.",
+          "caption": "un cesto in dono, ricevimento ufficiale"
+        },
+        {
+          "id": "arc-042",
+          "file": "gemellaggio-berg-la-sciarpa",
+          "alt": "Un uomo anziano annoda una sciarpa gialla e arancione al collo di una donna, che sorride commossa; intorno un piccolo gruppo osserva applaudendo, davanti a una parete verde con una croce.",
+          "caption": "la sciarpa del gemellaggio consegnata a mano"
+        },
+        {
+          "id": "arc-043",
+          "file": "gemellaggio-berg-il-brindisi",
+          "alt": "Una ventina di persone in piedi con un bicchiere in mano in un salone con un grande lampadario di cristallo e tendaggi rossi, davanti a due tavoli imbanditi con bottiglie e vassoi.",
+          "caption": "un brindisi sotto il lampadario"
+        },
+        {
+          "id": "arc-044",
+          "file": "gemellaggio-berg-coro-in-chiesa",
+          "alt": "Un coro di una ventina di persone, spartito alla mano, canta davanti all'altare di una chiesa, diretto da un uomo di spalle; ai lati candelabri dorati e un grande crocifisso.",
+          "caption": "un coro canta davanti all'altare"
+        },
+        {
+          "id": "arc-045",
+          "file": "gemellaggio-berg-pallavolo-gruppo",
+          "alt": "Un grande gruppo misto di giocatori di pallavolo in maglietta scura o colorata, in posa su tre file in una palestra con pavimento giallo e gradinate rosse.",
+          "caption": "le squadre miste in palestra"
+        },
+        {
+          "id": "arc-046",
+          "file": "gemellaggio-berg-pallavolo-squadra-a",
+          "alt": "Una squadra femminile di pallavolo in maglia azzurra, otto giocatrici in posa su due file in palestra, alcune inginocchiate in prima fila con un pallone.",
+          "caption": "la squadra femminile in maglia azzurra"
+        },
+        {
+          "id": "arc-047",
+          "file": "gemellaggio-berg-pallavolo-squadra-b",
+          "alt": "Una squadra di dieci giocatori in maglietta nera con inserti arancioni e verdi, in posa su due file in palestra; sullo sfondo uno striscione pubblicitario.",
+          "caption": "una squadra maschile in arancio e verde"
+        }
+      ]
+    },
+    {
+      "id": "estate-rivaltese",
+      "title": "L’Estate Rivaltese",
+      "text": "I tamburini di Berg, la cena sotto gli alberi e i volontari al banco.",
+      "book": "libro-eventi",
+      "date": "fra il 2001 e il 2013",
+      "photos": [
+        {
+          "id": "arc-048",
+          "file": "estate-rivaltese-tamburini-berg",
+          "alt": "Un gruppo di tamburini in costume tradizionale marcia battendo i tamburi davanti a un capannone rosso, con una bandiera gialla e rossa che sventola in primo piano; alcuni spettatori guardano da un gazebo.",
+          "caption": "i tamburini di Berg all'Estate Rivaltese"
+        },
+        {
+          "id": "arc-049",
+          "file": "estate-rivaltese-cena-sotto-gli-alberi",
+          "alt": "File di tavoli all'aperto sotto grandi alberi, pieni di gente a cena; sullo sfondo un gazebo illuminato e una bicicletta appoggiata a un tavolo in primo piano.",
+          "caption": "la cena sotto gli alberi"
+        },
+        {
+          "id": "arc-050",
+          "file": "estate-rivaltese-i-volontari",
+          "alt": "Sei volontari in maglietta bianca dietro e davanti a un bancone di legno, sorridenti verso l'obiettivo, con scaffali di bibite e snack alle spalle.",
+          "caption": "i volontari al banco"
+        }
+      ]
+    },
+    {
+      "id": "cena-burato",
+      "title": "La cena da Burato",
+      "text": "Un brindisi e la tavolata, in sala.",
+      "book": "libro-eventi",
+      "date": "fra il 2001 e il 2013",
+      "photos": [
+        {
+          "id": "arc-051",
+          "file": "cena-burato-brindisi",
+          "alt": "In primo piano due mani si stringono sopra un bicchiere, mentre un uomo in giacca scura sorride verso chi stringe la mano; dietro, altre persone sedute a tavolate lunghe in una sala.",
+          "caption": "un brindisi, cena da Burato"
+        },
+        {
+          "id": "arc-052",
+          "file": "cena-burato-tavolata",
+          "alt": "Una lunga tavolata imbandita con bottiglie blu e bicchieri colorati, gente seduta ai due lati che chiacchiera; alle pareti verdi due quadretti rossi con uno stemma.",
+          "caption": "la tavolata, cena da Burato"
+        }
+      ]
+    },
+    {
+      "id": "corale-2012",
+      "title": "La corale in chiesa",
+      "text": "Il coro tedesco attorno alla tastiera, il maestro che dirige, il coro al completo davanti all’altare e i fiori per il solista.",
+      "book": "libro-eventi",
+      "date": "1 ottobre 2012",
+      "dateTaken": "2012-10-01",
+      "photos": [
+        {
+          "id": "arc-053",
+          "file": "gemellaggio-corale-2012-il-maestro",
+          "alt": "Un maestro in piedi al centro di una chiesa dalle pareti gialle dirige un coro schierato dietro di lui, fra due file di panche di legno.",
+          "caption": "il maestro dirige il coro",
+          "date": "1 ott 2012",
+          "dateTaken": "2012-10-01"
+        },
+        {
+          "id": "arc-054",
+          "file": "gemellaggio-corale-2012-tastiera",
+          "alt": "Un coro di una quindicina di persone in abito scuro, sciarpa rossa e una spilla tonda uguale per tutti, canta stretto attorno a una tastiera elettronica su un leggio, in una chiesa dalle pareti bianche e dorate.",
+          "caption": "il coro tedesco attorno alla tastiera elettronica",
+          "date": "1 ott 2012",
+          "dateTaken": "2012-10-01"
+        },
+        {
+          "id": "arc-055",
+          "file": "gemellaggio-corale-2012-il-coro-grande",
+          "alt": "Un coro più numeroso, in nero con sciarpe gialle, disposto su più file davanti a un altare barocco con candelabri dorati e pavimento a scacchi bianchi e rossi; in primo piano una direttrice seduta a un leggio.",
+          "caption": "il coro al completo davanti all'altare",
+          "date": "1 ott 2012",
+          "dateTaken": "2012-10-01"
+        },
+        {
+          "id": "arc-056",
+          "file": "gemellaggio-corale-2012-il-canto",
+          "alt": "Un direttore gesticola con le mani alzate davanti a un coro che canta a bocca aperta, spartito alla mano; sullo sfondo un piccolo tabernacolo dipinto e una tastiera elettronica.",
+          "caption": "il coro canta, diretto dal maestro",
+          "date": "1 ott 2012",
+          "dateTaken": "2012-10-01"
+        },
+        {
+          "id": "arc-057",
+          "file": "gemellaggio-corale-2012-i-fiori",
+          "alt": "Un giovane in giacca e cravatta rossa riceve un applauso dal coro schierato dietro di lui, mentre qualcuno gli porge un mazzo di fiori gialli.",
+          "caption": "applausi e fiori per il solista",
+          "date": "1 ott 2012",
+          "dateTaken": "2012-10-01"
+        }
+      ]
+    },
+    {
+      "id": "francesi-canoa",
+      "title": "In canoa con i francesi",
+      "text": "Il gruppo prima di scendere in acqua e le canoe sul Mincio, fra i canneti.",
+      "book": "libro-eventi",
+      "date": "fra il 2001 e il 2013",
+      "photos": [
+        {
+          "id": "arc-058",
+          "file": "gemellaggio-francesi-canoa-gruppo",
+          "alt": "Un grande gruppo di persone in piedi sull'erba davanti a canoe rosse e verdi tirate a riva, con un filare di salici alle spalle; alcuni ragazzi siedono dentro le canoe in primo piano.",
+          "caption": "il gruppo prima di scendere in canoa"
+        },
+        {
+          "id": "arc-059",
+          "file": "gemellaggio-francesi-canoa-fiume",
+          "alt": "Diverse canoe e barche a remi cariche di persone con giubbotti salvagente arancioni avanzano su un tratto tranquillo del Mincio, fra canneti e alberi che si specchiano nell'acqua.",
+          "caption": "in canoa sul Mincio con visitatori francesi"
+        }
+      ]
+    },
+    {
+      "id": "municipio",
+      "title": "In municipio",
+      "text": "La giunta col gonfalone nel 2003 e, nel 2008, la classe seconda in visita: in posa sotto il portico e in sala consiliare con il sindaco.",
+      "book": "libro-eventi",
+      "date": "2003 e 2008",
+      "photos": [
+        {
+          "id": "arc-060",
+          "file": "giunta-rodigo-2003",
+          "alt": "Sei uomini in giacca seduti dietro al banco curvo di una sala consiliare, con davanti le carte; alle spalle un armadio a due ante, le bandiere e il gonfalone azzurro del Comune di Rodigo con la ruota di carro.",
+          "caption": "la giunta comunale col gonfalone",
+          "date": "15 dic 2003",
+          "dateTaken": "2003-12-15",
+          "page": 27
+        },
+        {
+          "id": "arc-061",
+          "file": "comune-rodigo-2008-la-classe",
+          "alt": "Una classe di bambini in posa sotto il portico ad archi del municipio, con tre accompagnatori dietro e lo scuolabus giallo fermo sulla destra.",
+          "caption": "la classe seconda davanti al municipio",
+          "date": "10 ott 2008",
+          "dateTaken": "2008-10-10",
+          "page": 95
+        },
+        {
+          "id": "arc-062",
+          "file": "comune-rodigo-2008-in-consiglio",
+          "alt": "Nella sala del consiglio il sindaco, in piedi con la fascia tricolore, parla ai bambini seduti attorno al grande tavolo di legno; accanto a lui una bandiera e alle pareti due stampe antiche.",
+          "caption": "il sindaco parla ai bambini in consiglio",
+          "date": "10 ott 2008",
+          "dateTaken": "2008-10-10",
+          "page": 95
+        }
+      ]
+    }
+  ]
+}

@@ -91,5 +91,25 @@
     "rank": 10,
     "scope": "Eventi e iniziative delle associazioni del paese: sagra patronale, Palio delle Contrade, attività dell'oratorio. Materiale fornito dagli organizzatori.",
     "checkedAt": "2026-09-22"
+  },
+  {
+    "id": "source-010",
+    "name": "«Rivalta sul Mincio 2001–2013 — Eventi e Ricordi»",
+    "type": "local",
+    "rank": 11,
+    "scope": "Fotografie d'archivio: le feste, le visite e le ricorrenze del paese dal 2001 al 2013, riprodotte dalle pagine del volume (Nuova Universo Gutenberg Edizioni).",
+    "attribution": "Nuova Universo Gutenberg Edizioni",
+    "terms": "Volume cartaceo, senza sito. Le fotografie sono riprodotte con la scheda del libro accanto; la copia è arrivata al progetto in dono da Annasofia Sanfelici.",
+    "checkedAt": "2026-11-03"
+  },
+  {
+    "id": "source-011",
+    "name": "«Rivalta nel ’900 — Immagini per non dimenticare»",
+    "type": "local",
+    "rank": 12,
+    "scope": "Fotografie d'archivio: strade, case e corti del paese fotografate negli anni Ottanta e di nuovo nel 2000 dallo stesso punto, riprodotte dalle pagine del volume (Circolo Fotografico Rivalta e Comune di Rodigo).",
+    "attribution": "Circolo Fotografico Rivalta · Comune di Rodigo",
+    "terms": "Volume cartaceo, senza sito. Le fotografie sono riprodotte con la scheda del libro accanto; la copia è arrivata al progetto in dono da Annasofia Sanfelici.",
+    "checkedAt": "2026-11-03"
   }
 ]

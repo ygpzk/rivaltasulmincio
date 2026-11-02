@@ -643,6 +643,28 @@ Possibili elementi:
 * stato dati;
 * timestamp.
 
+## IERI (ARCHIVIO)
+
+Le fotografie d'epoca hanno una pagina, `/ieri`, e un modulo in Home.
+
+Il confronto com'era/com'è:
+
+```text
+[ 1992 c. ]                      [ 1997 c. ]
+|  foto di prima  |<>|  foto di oggi       |
+La trattoria «Al Pescatore»   1992 c. → 1997 c.
+una riga su che cosa è cambiato
+```
+
+* due fotografie sovrapposte, angoli 1 rem, la linea avorio con il grip tondo;
+* la foto di prima entra da sinistra fino a metà quando la figura arriva in vista, poi comanda chi trascina;
+* gli anni in pillola mono: lime per prima, avorio per oggi, sopra il riquadro intero così la linea non li taglia;
+* senza JavaScript le due foto stanno affiancate.
+
+I giorni: testo fermo a sinistra, nastro di fotografie che scorre a destra, ognuna apre la finestra (`<dialog>` sul verde, frecce e tasti freccia).
+
+Regola: una fotografia d'archivio dice sempre da dove viene. La scheda verde dei libri chiude la pagina e i volumi stanno nel registro fonti.
+
 ## MAPPA
 
 Mappa deve sembrare integrata con UI, non elemento esterno.

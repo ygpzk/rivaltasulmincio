@@ -6,3 +6,4 @@ export type { Notice } from './notice';
 export type { Poster } from './poster';
 export type { MapPlace, OsmReference, OsmSyncMeta, OsmType, Place, PlaceCategory } from './place';
 export type { SearchEntry } from './search';
+export type { ArchiveBook, ArchiveData, ArchiveDay, ArchiveFormat, ArchivePair, ArchivePhoto } from './archive';

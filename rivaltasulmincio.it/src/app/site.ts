@@ -18,6 +18,7 @@ export const site = {
     { href: '/giornale', label: 'Giornale' },
     { href: '/mappa', label: 'Mappa' },
     { href: '/luoghi', label: 'Luoghi' },
+    { href: '/ieri', label: 'Ieri' },
     { href: '/meteo', label: 'Meteo' },
     { href: '/fonti', label: 'Fonti' },
   ],

@@ -4,6 +4,7 @@ import database from 'lucide-static/icons/database.svg?raw';
 import newspaper from 'lucide-static/icons/newspaper.svg?raw';
 import building2 from 'lucide-static/icons/building-2.svg?raw';
 import bus from 'lucide-static/icons/bus.svg?raw';
+import camera from 'lucide-static/icons/camera.svg?raw';
 import circleCheck from 'lucide-static/icons/circle-check.svg?raw';
 import cloud from 'lucide-static/icons/cloud.svg?raw';
 import cloudDrizzle from 'lucide-static/icons/cloud-drizzle.svg?raw';
@@ -45,6 +46,7 @@ const ICONS = {
   newspaper,
   'building-2': building2,
   bus,
+  camera,
   'circle-check': circleCheck,
   cloud,
   'cloud-drizzle': cloudDrizzle,

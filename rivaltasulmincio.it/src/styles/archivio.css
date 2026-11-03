@@ -418,9 +418,13 @@
 
 /* La finestra sulla fotografia: un <dialog> nativo sul verde. */
 .lightbox {
+  /* Centrato nella finestra: il riquadro è alto quanto il suo contenuto. */
+  inset: 0;
+  margin: auto;
   width: min(100vw - 2rem, 96rem);
+  height: fit-content;
   max-width: none;
-  max-height: none;
+  max-height: calc(100svh - 2rem);
   padding: 0;
   border: 0;
   border-radius: var(--radius-2xl);
@@ -487,6 +491,7 @@
 
 .lightbox__caption {
   min-height: 1.5em;
+  text-align: center;
   font-size: var(--text-sm);
   line-height: 1.4;
   color: var(--color-text-secondary);
